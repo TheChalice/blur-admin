@@ -14,7 +14,7 @@
     $scope.charts = [{
       color: pieColor,
       description: 'New Visits',
-      stats: '57,820',
+      stats: '6666',
       icon: 'person',
     }, {
       color: pieColor,

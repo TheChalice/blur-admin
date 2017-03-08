@@ -1,0 +1,1 @@
+/** * Created by sorcerer on 2017/3/8. */(function () {    'use strict';    angular.module('BlurAdmin.resource', ['ngResource'])        .factory('User', ['$resource', function ($resource) {        var User = $resource('/users/:name', {name: '@name'}, {            create: {method: 'POST'}        });        return User;    }])    /** @ngInject */})();
