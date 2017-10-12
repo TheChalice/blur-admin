@@ -44,7 +44,7 @@
                 blank: true
             }]
         });
-        baSidebarServiceProvider.addStaticItem({
+        var obj = {
             title: 'Menu Level 1',
             icon: 'ion-ios-more',
             subMenu: [{
@@ -57,7 +57,8 @@
                     disabled: true
                 }]
             }]
-        });
+        }
+        baSidebarServiceProvider.addStaticItem(obj);
     }
 
 })();
