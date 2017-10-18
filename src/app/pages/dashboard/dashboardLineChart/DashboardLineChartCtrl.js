@@ -9,9 +9,23 @@
       .controller('DashboardLineChartCtrl', DashboardLineChartCtrl);
 
   /** @ngInject */
-  function DashboardLineChartCtrl(baConfig, layoutPaths, baUtil) {
+  function DashboardLineChartCtrl(baConfig, layoutPaths, baUtil,Metrics,$rootScope) {
     var layoutColors = baConfig.colors;
     var graphColor = baConfig.theme.blur ? '#000000' : layoutColors.primary;
+    Metrics.cpu.all.query({
+      tags: 'descriptor_name:cpu/usage,pod_namespace:' + $rootScope.namespace,
+      buckets: 30
+    }, function (cpuuser) {
+      console.log('cpuuser', cpuuser);
+      Metrics.mem.all.query({
+        tags: 'descriptor_name:memory/usage,pod_namespace:' + $rootScope.namespace,
+        buckets: 30
+      }, function (memoryuser) {
+        console.log('cpuuser', memoryuser);
+      })
+    }, function (err) {
+
+    })
     var chartData = [
       { date: new Date(2012, 11), value: 0, value0: 0 },
       { date: new Date(2013, 0), value: 15000, value0: 19000},

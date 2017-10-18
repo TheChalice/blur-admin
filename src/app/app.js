@@ -27,6 +27,7 @@ angular.module('BlurAdmin', [
         host_wss_k8s: '/ws/api/v1',
         login_uri: '/login',
         signin_uri: '/signin',
+        host_hawkular: '/hawkular/metrics',
         host_webhooks: 'https://dev.dataos.io:8443'
     })
     .constant('AUTH_EVENTS', {

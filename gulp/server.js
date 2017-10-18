@@ -35,11 +35,17 @@ function browserSyncInit(baseDir, browser) {
      */
     server.middleware = [
         proxyMiddleware('/signin', {
-            target: 'http://mobile-bj.app-dacp.dataos.io',
-            changeOrigin: true
+            target: 'https://lab.new.dataos.io',
+            changeOrigin: true,
+            secure: false
         }),
         proxyMiddleware('/oapi/', {
-            target: 'https://10.1.130.134:8443',
+            target: 'https://new.dataos.io:8443',
+            changeOrigin: true,
+            secure: false
+        }),
+        proxyMiddleware('/hawkular/', {
+            target: 'https://hawkular-metrics.new.dataos.io',
             changeOrigin: true,
             secure: false
         })]
