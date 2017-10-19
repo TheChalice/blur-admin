@@ -14,8 +14,8 @@
         var graphColor = baConfig.theme.blur ? '#000000' : layoutColors.primary;
         console.log('Cookie', Cookie.get('namespace'));
         if (!$rootScope.namespace) {
-            $rootScope.namespace = 'datafoundry'
-            //$rootScope.namespace=Cookie.get('namespace')
+            //$rootScope.namespace = 'datafoundry'
+            $rootScope.namespace=Cookie.get('namespace')
         }
         $scope.cpuData = [];
         $scope.memData = [];
@@ -24,7 +24,7 @@
             "type": "serial",
             "theme": "light",
             "titles": [{
-                "text": "瞎测的",
+                "text":'',
                 "size": 15
             }],
             "legend": {
