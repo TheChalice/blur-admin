@@ -12,7 +12,7 @@
     function DashboardLineChartCtrl(baConfig, layoutPaths, baUtil, Metrics, $rootScope, Cookie, resourcequotas, $scope, MetricsService) {
         var layoutColors = baConfig.colors;
         var graphColor = baConfig.theme.blur ? '#000000' : layoutColors.primary;
-        console.log('Cookie', Cookie.get('namespace'));
+        //console.log('Cookie', Cookie.get('namespace'));
         if (!$rootScope.namespace) {
             //$rootScope.namespace = 'datafoundry'
             $rootScope.namespace=Cookie.get('namespace')
@@ -33,7 +33,6 @@
                 "periodValueText": "total: [[value.sum]]",
                 "valueAlign": "left",
                 "valueText": "[[value]]",
-                //"valueText": "[[value]] ([[percents]]%)",
                 "valueWidth": 100
             },
             "dataProvider":{},
@@ -136,27 +135,25 @@
             //console.log('$scope.rederData', $scope.rederData);
 
         }
+
         Metrics.cpu.all.query({
             tags: 'descriptor_name:cpu/usage,pod_namespace:' + $rootScope.namespace,
             buckets: 30
         }, function (cpuuser) {
             $scope.cpuData = prepareData('CPU', cpuuser);
-            //console.log('$scope.cpuData', $scope.cpuData);
-
             Metrics.mem.all.query({
                 tags: 'descriptor_name:memory/usage,pod_namespace:' + $rootScope.namespace,
                 buckets: 30
             }, function (memoryuser) {
                 $scope.memData = prepareData('内存', memoryuser);
-                //console.log('memoryuser', $scope.memData);
                 resourcequotas.get({namespace: $rootScope.namespace}, function (rcdata) {
                     chartdata.dataProvider=$scope.rederData
                     var chart = AmCharts.makeChart("chartdiv", chartdata);
-
+                    $scope.canrender.render=true;
+                    $scope.canrender.cpuData=$scope.cpuData;
+                    $scope.canrender.memData=$scope.memData;
                 })
             })
-        }, function (err) {
-
         })
     }
 })();
