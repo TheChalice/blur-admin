@@ -9,7 +9,7 @@
       .controller('BlurFeedCtrl', BlurFeedCtrl);
 
   /** @ngInject */
-  function BlurFeedCtrl($scope,Project,$rootScope) {
+  function BlurFeedCtrl($scope,Project,$rootScope,Cookie,$state) {
 
 
     var obj={
@@ -49,7 +49,12 @@
     })
 
     $scope.expandMessage = function(message){
-      message.expanded = !message.expanded;
+      $rootScope.namespace=message.metadata.name;
+      Cookie.set('namespace', $rootScope.namespace, 10 * 365 * 24 * 3600 * 1000);
+      $state.reload();
+      //alert(message.metadata.name)
+
+      //message.expanded = !message.expanded;
     }
   }
 })();
