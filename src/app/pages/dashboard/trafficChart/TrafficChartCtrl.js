@@ -20,45 +20,55 @@
           }
           if (n) {
               console.log('canrender', n);
+              var allcpu = 0;
+              angular.forEach(n.cpuData, function (cpu,i) {
+                  allcpu+=cpu
+              })
+              var user = Math.round((allcpu/n.cpuData.length)*1000)/1000
+              $scope.baifenbi={
+                  type:'CPU',
+                  per:user
+              }
+              $scope.doughnutData = {
+                  labels: [
+                      'Other',
+                      'user',
 
+                  ],
+                  datasets: [
+                      {data: [100-user, user],
+                          backgroundColor: [
+                              dashboardColors.white,
+                              dashboardColors.blueStone,
+                          ],
+                          hoverBackgroundColor: [
+                              colorHelper.shade(dashboardColors.white, 15),
+                              colorHelper.shade(dashboardColors.blueStone, 15),
+
+                          ],
+                          percentage: [100-user, user]
+                      }]
+              };
+              window.myDoughnut = new Chart(ctx, {
+                  type: 'doughnut',
+                  data: $scope.doughnutData,
+                  options: {
+                      cutoutPercentage: 64,
+                      responsive: true,
+                      elements: {
+                          arc: {
+                              borderWidth: 0
+                          }
+                      }
+                  }
+              });
           }
       },true);
 
 
-      $scope.doughnutData = {
-          labels: [
-              'Other',
-              'Search engines',
 
-          ],
-          datasets: [
-              {data: [2000, 1500],
-                  backgroundColor: [
-                      dashboardColors.white,
-                      dashboardColors.blueStone,
-                  ],
-                  hoverBackgroundColor: [
-                      colorHelper.shade(dashboardColors.white, 15),
-                      colorHelper.shade(dashboardColors.blueStone, 15),
-
-                  ],
-                  percentage: [87, 22]
-              }]
-      };
 
       var ctx = document.getElementById('chart-area').getContext('2d');
-      window.myDoughnut = new Chart(ctx, {
-          type: 'doughnut',
-          data: $scope.doughnutData,
-          options: {
-              cutoutPercentage: 64,
-              responsive: true,
-              elements: {
-                  arc: {
-                      borderWidth: 0
-                  }
-              }
-          }
-      });
+
   }
 })();
