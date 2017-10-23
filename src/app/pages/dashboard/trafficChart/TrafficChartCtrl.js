@@ -31,8 +31,8 @@
               }
               $scope.doughnutData = {
                   labels: [
-                      'Other',
-                      'user',
+                      'Available',
+                      'Used',
 
                   ],
                   datasets: [
