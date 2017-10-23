@@ -10,6 +10,7 @@
             'BlurAdmin.resource',
             'BlurAdmin.pages.dashboard',
             'BlurAdmin.pages.build',
+            'BlurAdmin.pages.resourceMgm',
             'BlurAdmin.pages.ui',
             'BlurAdmin.pages.myNewPage',
             'BlurAdmin.pages.components',
