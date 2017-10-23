@@ -9,6 +9,7 @@
             'ui.router',
             'BlurAdmin.resource',
             'BlurAdmin.pages.dashboard',
+            'BlurAdmin.pages.build',
             'BlurAdmin.pages.ui',
             'BlurAdmin.pages.myNewPage',
             'BlurAdmin.pages.components',
@@ -22,7 +23,7 @@
 
     /** @ngInject */
     function routeConfig($urlRouterProvider, baSidebarServiceProvider) {
-        $urlRouterProvider.otherwise('/myNewPage');
+        $urlRouterProvider.otherwise('/build');
 
         baSidebarServiceProvider.addStaticItem({
             title: 'Pages',
