@@ -44,16 +44,17 @@ function browserSyncInit(baseDir, browser) {
             changeOrigin: true,
             secure: false
         }),
+        proxyMiddleware('/ws/', {
+            target: 'https://new.dataos.io:8443',
+            pathRewrite: {'^/ws/' : '/'},
+            changeOrigin: true,
+            secure: false,
+            ws:true
+        }),
         proxyMiddleware('/api/', {
             target: 'https://new.dataos.io:8443',
             changeOrigin: true,
             secure: false
-        }),
-        proxyMiddleware('/ws/', {
-            target: 'https://new.dataos.io:8443',
-            changeOrigin: true,
-            secure: false,
-            ws:true
         }),
         proxyMiddleware('/hawkular/', {
             target: 'https://hawkular-metrics.new.dataos.io',
