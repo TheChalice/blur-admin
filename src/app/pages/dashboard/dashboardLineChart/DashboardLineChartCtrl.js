@@ -9,7 +9,7 @@
         .controller('DashboardLineChartCtrl', DashboardLineChartCtrl);
 
     /** @ngInject */
-    function DashboardLineChartCtrl(baConfig, layoutPaths, baUtil, Metrics, $rootScope, Cookie, resourcequotas, $scope, MetricsService) {
+    function DashboardLineChartCtrl(baConfig, layoutPaths, baUtil, Metrics, $rootScope, Cookie, resourcequotas, $scope, MetricsService,Ws,$log) {
         var layoutColors = baConfig.colors;
         var graphColor = baConfig.theme.blur ? '#000000' : layoutColors.primary;
         //console.log('Cookie', Cookie.get('namespace'));
@@ -17,6 +17,43 @@
             //$rootScope.namespace = 'datafoundry'
             $rootScope.namespace=Cookie.get('namespace')
         }
+        //Ws.watch({
+        //    api: 'k8s',
+        //    resourceVersion: 1.1,
+        //    namespace: $rootScope.namespace,
+        //    type: 'pods',
+        //    name: 'ss' + '/log',
+        //    pod: 'aa',
+        //    protocols: 'base64.binary.k8s.io'
+        //}, function (res) {
+        //    //console.log(res);
+        //    //var data = JSON.parse(res.data);
+        //    //updateRcs(data);
+        //    //console.log(data);
+        //    if (res.data && typeof res.data == "string") {
+        //        //if ($base64.decode(res.data) !== undefined) {
+        //        //    //console.log('$scope.result',$scope.result);
+        //        //    $scope.result += $base64.decode(res.data);
+        //        //    var html = ansi_ups.ansi_to_html($scope.result);
+        //        //    $scope.log = $sce.trustAsHtml(html);
+        //        //    loglast()
+        //        //    $scope.$apply();
+        //        //}
+        //
+        //
+        //    }
+        //
+        //    //loglast()
+        //}, function () {
+        //    $log.info("webSocket startRC");
+        //}, function () {
+        //    $log.info("webSocket stopRC");
+        //    //var key = Ws.key($rootScope.namespace, 'pods', $scope.pod);
+        //    //if (!$rootScope.watches[key] || $rootScope.watches[key].shouldClose) {
+        //    //    return;
+        //    //}
+        //    //watchpod($scope.resourceVersion);
+        //});
         $scope.cpuData = [];
         $scope.memData = [];
         $scope.rederData = [];

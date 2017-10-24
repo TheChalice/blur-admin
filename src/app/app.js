@@ -17,7 +17,8 @@ angular.module('BlurAdmin', [
         'angular-progress-button-styles',
         'BlurAdmin.theme',
         'BlurAdmin.pages',
-        'base64'
+        'base64',
+        'BlurAdmin.webSocket'
     ])
     .constant('GLOBAL', {
         size: 10,
