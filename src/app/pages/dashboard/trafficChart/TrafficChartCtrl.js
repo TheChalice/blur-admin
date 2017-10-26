@@ -9,53 +9,66 @@
       .controller('TrafficChartCtrl', TrafficChartCtrl);
 
   /** @ngInject */
-  function TrafficChartCtrl($scope, baConfig, colorHelper) {
+  function TrafficChartCtrl($scope, baConfig, colorHelper,Metrics,$rootScope,Cookie) {
 
       $scope.transparent = baConfig.theme.blur;
       var dashboardColors = baConfig.colors.dashboard;
-      $scope.doughnutData = {
-          labels: [
-              'Other',
-              'Search engines',
-              'Referral Traffic',
-              'Direct Traffic',
-              'Ad Campaigns'
-          ],
-          datasets: [
-              {
-                  data: [2000, 1500, 1000, 1200, 400],
-                  backgroundColor: [
-                      dashboardColors.white,
-                      dashboardColors.blueStone,
-                      dashboardColors.surfieGreen,
-                      dashboardColors.silverTree,
-                      dashboardColors.gossip
+      //console.log('canrender', $scope.canrender);
+      $scope.$watch('canrender', function (n,o) {
+          if (n === o) {
+              return
+          }
+          if (n) {
+              console.log('canrender', n);
+              var allcpu = 0;
+              angular.forEach(n.cpuData, function (cpu,i) {
+                  allcpu+=cpu
+              })
+              var user = Math.round((allcpu/n.cpuData.length)*1000)/1000
+              $scope.baifenbi={
+                  type:'CPU',
+                  per:user
+              }
+              $scope.doughnutData = {
+                  labels: [
+                      'Available',
+                      'Used',
 
                   ],
-                  hoverBackgroundColor: [
-                      colorHelper.shade(dashboardColors.white, 15),
-                      colorHelper.shade(dashboardColors.blueStone, 15),
-                      colorHelper.shade(dashboardColors.surfieGreen, 15),
-                      colorHelper.shade(dashboardColors.silverTree, 15),
-                      colorHelper.shade(dashboardColors.gossip, 15)
-                  ],
-                  percentage: [87, 22, 70, 38, 17]
-              }]
-      };
+                  datasets: [
+                      {data: [100-user, user],
+                          backgroundColor: [
+                              dashboardColors.white,
+                              dashboardColors.blueStone,
+                          ],
+                          hoverBackgroundColor: [
+                              colorHelper.shade(dashboardColors.white, 15),
+                              colorHelper.shade(dashboardColors.blueStone, 15),
+
+                          ],
+                          percentage: [100-user, user]
+                      }]
+              };
+              window.myDoughnut = new Chart(ctx, {
+                  type: 'doughnut',
+                  data: $scope.doughnutData,
+                  options: {
+                      cutoutPercentage: 64,
+                      responsive: true,
+                      elements: {
+                          arc: {
+                              borderWidth: 0
+                          }
+                      }
+                  }
+              });
+          }
+      },true);
+
+
+
 
       var ctx = document.getElementById('chart-area').getContext('2d');
-      window.myDoughnut = new Chart(ctx, {
-          type: 'doughnut',
-          data: $scope.doughnutData,
-          options: {
-              cutoutPercentage: 64,
-              responsive: true,
-              elements: {
-                  arc: {
-                      borderWidth: 0
-                  }
-              }
-          }
-      });
+
   }
 })();

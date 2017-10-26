@@ -9,8 +9,12 @@
             'ui.router',
             'BlurAdmin.resource',
             'BlurAdmin.pages.dashboard',
+            'BlurAdmin.pages.build',
+            'BlurAdmin.pages.service',
+            'BlurAdmin.pages.resourceMgm',
+            'BlurAdmin.pages.secretDetail',
             'BlurAdmin.pages.ui',
-            'BlurAdmin.pages.myNewPage',
+            'BlurAdmin.pages.login',
             'BlurAdmin.pages.components',
             'BlurAdmin.pages.form',
             'BlurAdmin.pages.tables',
@@ -22,7 +26,7 @@
 
     /** @ngInject */
     function routeConfig($urlRouterProvider, baSidebarServiceProvider) {
-        $urlRouterProvider.otherwise('/myNewPage');
+        $urlRouterProvider.otherwise('/login');
 
         baSidebarServiceProvider.addStaticItem({
             title: 'Pages',
@@ -44,7 +48,7 @@
                 blank: true
             }]
         });
-        baSidebarServiceProvider.addStaticItem({
+        var obj = {
             title: 'Menu Level 1',
             icon: 'ion-ios-more',
             subMenu: [{
@@ -57,7 +61,8 @@
                     disabled: true
                 }]
             }]
-        });
+        }
+        baSidebarServiceProvider.addStaticItem(obj);
     }
 
 })();

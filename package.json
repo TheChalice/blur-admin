@@ -44,5 +44,13 @@
   },
   "scripts": {
     "postinstall": "bower install"
+  },
+  "dependencies": {
+    "angular-base64": "^2.0.5",
+    "express": "^4.15.3",
+    "gulp-connect": "^5.0.0",
+    "gulp-connect-proxy": "^0.3.1",
+    "http-proxy-middleware": "^0.17.4",
+    "request": "^2.81.0"
   }
 }
