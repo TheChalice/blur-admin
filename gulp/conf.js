@@ -19,6 +19,47 @@ exports.paths = {
   e2e: 'e2e'
 };
 
+exports.proxy = [
+  {
+    path:'/signin',
+    relay:{
+      target: 'https://lab.new.dataos.io',
+      changeOrigin: true,
+      secure: false
+    }
+  },{
+    path:'/oapi/',
+    relay:{
+      target: 'https://new.dataos.io:8443',
+      changeOrigin: true,
+      secure: false
+    }
+  },{
+    path:'/ws/',
+    relay:{
+      target: 'https://new.dataos.io:8443',
+      pathRewrite: {'^/ws/' : '/'},
+      changeOrigin: true,
+      secure: false,
+      ws:true
+    }
+  },{
+    path:'/api/',
+    relay:{
+      target: 'https://new.dataos.io:8443',
+      changeOrigin: true,
+      secure: false
+    }
+  },{
+    path:'/hawkular/',
+    relay:{
+      target: 'https://hawkular-metrics.new.dataos.io',
+      changeOrigin: true,
+      secure: false
+    }
+  },
+]
+
 /**
  *  Wiredep is the lib which inject bower dependencies in your project
  *  Mainly used to inject script tags in the index.html but also used
