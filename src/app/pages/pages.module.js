@@ -13,6 +13,7 @@
             'BlurAdmin.pages.service',
             'BlurAdmin.pages.resourceMgm',
             'BlurAdmin.pages.secretDetail',
+            'BlurAdmin.pages.servicedetil',
             'BlurAdmin.pages.ui',
             'BlurAdmin.pages.login',
             'BlurAdmin.pages.components',
