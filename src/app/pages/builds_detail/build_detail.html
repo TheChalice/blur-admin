@@ -1,125 +1,137 @@
-<div class="widgets">
-   
-    <div ba-panel ba-panel-title="构建详情"  >
-        <div class="horizontal-scroll" style="height:auto;">
-            
-            <uib-tabset active="$tabSetStatus.activeTab">
-                <uib-tab heading="构建记录">
-                    <!-- todo: remove whole block -->
-<div ba-panel>
-    <section id="cd-timeline" class="cd-container cssanimations" ng-controller="TimelineCtrl">
-      <div class="cd-timeline-block">
-        <div class="cd-timeline-img">
-          <div class="kameleon-icon with-round-bg warning"><img ng-src="{{::( 'Euro-Coin' | kameleonImg )}}"></div>
-        </div>
-  
-        <div class="cd-timeline-content warning">
-          <span class="cd-date">Jan 14</span>
-        </div>
-      </div>
-  
-      <div class="cd-timeline-block">
-        <div class="cd-timeline-img">
-          <div class="kameleon-icon with-round-bg danger"><img ng-src="{{::( 'Laptop-Signal' | kameleonImg )}}"></div>
-        </div>
-  
-        <div class="cd-timeline-content danger">
-          <h5>Title of section 2</h5>
-  
-          <p>Donec dapibus at leo eget volutpat. Praesent dolor tellus, ultricies venenatis molestie eu, luctus eget nibh.
-            Curabitur ullamcorper eleifend nisl.</p>
-          <span class="cd-date">Jan 18</span>
-        </div>
-      </div>
-  
-      <div class="cd-timeline-block">
-        <div class="cd-timeline-img">
-          <div class="kameleon-icon with-round-bg primary"><img ng-src="{{::( 'Checklist' | kameleonImg )}}"></div>
-        </div>
-  
-        <div class="cd-timeline-content primary">
-          <h5>Title of section 3</h5>
-  
-          <p>Phasellus auctor tellus eget lacinia condimentum. Cum sociis natoque penatibus et magnis dis parturient
-            montes.</p>
-          <span class="cd-date">Feb 18</span>
-        </div>
-      </div>
-  
-      <div class="cd-timeline-block">
-        <div class="cd-timeline-img">
-          <div class="kameleon-icon with-round-bg warning"><img ng-src="{{::( 'Boss-3' | kameleonImg )}}"></div>
-        </div>
-  
-        <div class="cd-timeline-content warning">
-          <h5>Title of section 4</h5>
-  
-          <p>Morbi fringilla in massa ac posuere. Fusce non sagittis massa, id accumsan odio. Nullam eget tempor est.
-            Etiam eu felis eu purus aliquam tristique id quis nisl. Nam eros nibh, consequat sed pulvinar eu, ultrices
-            ornare ligula. Aenean interdum sed nunc sed hendrerit.</p>
-          <span class="cd-date">Feb 20</span>
-        </div>
-      </div>
-      <div class="cd-timeline-block">
-        <div class="cd-timeline-img">
-          <div class="kameleon-icon with-round-bg danger"><img ng-src="{{::( 'Online-Shopping' | kameleonImg )}}"></div>
-        </div>
-  
-        <div class="cd-timeline-content danger">
-          <h5>Title of section 5</h5>
-  
-          <p> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur eget mattis
-            metus. Nullam egestas eros metus, quis fringilla urna accumsan sed. Aliquam ultrices at arcu vitae
-            tincidunt.</p>
-          <span class="cd-date">Feb 21</span>
-        </div>
-      </div>
-      <div class="cd-timeline-block">
-        <div class="cd-timeline-img">
-          <div class="kameleon-icon with-round-bg primary"><img ng-src="{{::( 'Money-Increase' | kameleonImg )}}"></div>
-        </div>
-  
-        <div class="cd-timeline-content primary">
-          <h5>Title of section 6</h5>
-  
-          <p>Praesent bibendum ante mattis augue consectetur, ut commodo turpis consequat. Donec ligula eros, porta in
-            iaculis vel, semper ac sem. Integer at mauris lorem.</p>
-          <span class="cd-date">Feb 23</span>
-        </div>
-      </div>
-      <div class="cd-timeline-block">
-        <div class="cd-timeline-img">
-          <div class="kameleon-icon with-round-bg warning"><img ng-src="{{::( 'Vector' | kameleonImg )}}"></div>
-        </div>
-  
-        <div class="cd-timeline-content warning">
-          <h5>Title of section 7</h5>
-  
-          <p>Vivamus ut laoreet erat, vitae eleifend eros. Sed varius id tellus non lobortis. Sed dolor ante, cursus non
-            scelerisque sed, euismod id eros.</p>
-          <span class="cd-date">Feb 24</span>
-        </div>
-      </div>
-    </section>
-  </div>
-              
-                </uib-tab>
-                <uib-tab heading="配置信息">
-                  <p>
-                    You can't connect the dots looking forward; you can only connect them looking backwards. So you have to trust that
-                    the dots will somehow connect in your future. You have to trust in something--your gut, destiny, life, karma,
-                    whatever. This approach has never let me down, and it has made all the difference in my life.
-                  </p>
-              
-                  <p>
-                    The reason most people never reach their goals is that they don't define them, or ever seriously consider them as
-                    believable or achievable. Winners can tell you where they are going, what they plan to do along the way, and who
-                    will be sharing the adventure with them.
-                  </p>
-                </uib-tab>
-                
-              </uib-tabset>
+<div class="widgets" id="build_detail">
 
-        </div>
+  <div ba-panel ba-panel-title="构建详情">
+
+      <div class="panel panel-default">
+          <div class="panel-heading">
+          <span class="panel-title ng-binding">
+              <span class="icon25 icon25-panel"></span>&nbsp;&nbsp;
+          </span>
+                <a class="pull-right" ng-click="deletes()">
+              <button type="button" class="btn btn-default btn-icon btn-icon-set">
+                <i class="fa fa-trash-o fa-lg"></i>
+              </button>
+            </a>
+              <a class="pull-right pull-right-gj" ng-click="startBuild()">
+                  <button type="button" class="btn btn-primary  btn-sm">构建</button>
+              </a>
+              
+          </div>
+          <div class="panel-body">
+              <div class="row">
+                  <div class="col-sm-4">
+                      <div class="media media-sm">
+                          <div class="media-left">
+                              <img class="media-object" src="assets/img/app/build_detail/images_104.png">
+                          </div>
+                          <div class="media-body">
+                              <h4 class="media-heading">创建时间</h4>
+                              <small class="med_small" uib-tooltip="" class="ng-binding">-</small>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-sm-4">
+                      <div class="media media-sm">
+                          <div class="media-left">
+                              <img class="media-object" src="assets/img/app/build_detail/images_106.png">
+                          </div>
+                          <div class="media-body tell" style="width: 100%;">
+                              <h4 class="media-heading">代码URL</h4>
+                              <div class="till ng-binding">
+
+                                  
+                              </div>
+                              <small>
+                                  <a class="href-orange text-overflow ng-binding" href="" target="_blank" style="width:60%;"></a>
+                              </small>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-sm-4">
+                      <!-- ngIf: imageEnable -->
+                  </div>
+              </div>
+          </div>
+      </div>
+    
+    <div class="horizontal-scroll" style="height:auto;">
+
+      <uib-tabset active="$tabSetStatus.activeTab">
+        <uib-tab heading="构建记录">
+          <div class="timeline">
+            <ul>
+              <li ng-repeat="item in databuild.items">
+                <label uib-tooltip="{{item.metadata.creationTimestamp | timescon}}">
+                                <span class="dot"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                {{item.metadata.creationTimestamp | dateRelative}}
+                            </label>
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-sm-2 ng-binding">
+
+                      <span class="icon12 icon12-{{item.status.phase}}" ng-class="{'fa-spin': item.status.phase == 'Running' || item.status.phase == 'Pending'}"></span>
+                      <!--switch to Chinese-->
+                      {{item.status.phase | phaseFilter}}
+                    </div>
+
+                    <div class="col-sm-3 tell" >
+                      <div class="till ng-binding">
+                        ssssw:2d9182a</div>
+                      <div class="tell_detail">
+                        <i class="fa fa-flag-o"></i>&nbsp;
+                        <!--<span ng-if="item.spec.revision.git.ref">-->
+                        <span class="ng-binding">ssssw:2d9182a</span>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <span class="ng-binding">构建时长:1分7秒</span>
+                    </div>
+                    <div class="col-sm-3 text-right">
+                      <a ui-sref="console.image_detail({bc: item.metadata.labels.buildconfig, name: item.spec.output.to.name})"
+                        class="icon25 icon25-forward ng-scope" uib-tooltip="查看镜像" href="#/console/image/myimage/ssssw/ssssw%3Alatest"></a>
+                      <a ng-click="delete($index)" class="icon25 icon25-delete ng-scope" uib-tooltip="删除" href="javascript:;"></a>
+                      
+                      <a class="icon25 icon25-collapse" uib-tooltip="查看日志" ng-click="getLog($index,item)" href="javascript:;"></a>
+                    </div>
+                  </div>
+                </div>
+                
+
+                <div uib-collapse="item.showLog">
+                    <div class="well well-log" style='overflow: auto'>
+                        <pre id='sa'>{{item.buildLog}}</pre>
+                    </div>
+                </div>
+
+
+              </li>
+              
+            </ul>
+
+            
+
+          </div>
+
+          
+
+
+        </uib-tab>
+        <uib-tab heading="配置信息">
+          <p>
+            You can't connect the dots looking forward; you can only connect them looking backwards. So you have to trust that the dots
+            will somehow connect in your future. You have to trust in something--your gut, destiny, life, karma, whatever.
+            This approach has never let me down, and it has made all the difference in my life.
+          </p>
+
+          <p>
+            The reason most people never reach their goals is that they don't define them, or ever seriously consider them as believable
+            or achievable. Winners can tell you where they are going, what they plan to do along the way, and who will be
+            sharing the adventure with them.
+          </p>
+        </uib-tab>
+
+      </uib-tabset>
+
     </div>
+  </div>
 </div>
