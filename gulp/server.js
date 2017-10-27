@@ -33,34 +33,40 @@ function browserSyncInit(baseDir, browser) {
      *
      * For more details and option, https://github.com/chimurai/http-proxy-middleware/blob/v0.9.0/README.md
      */
-    server.middleware = [
-        proxyMiddleware('/signin', {
-            target: 'https://lab.new.dataos.io',
-            changeOrigin: true,
-            secure: false
-        }),
-        proxyMiddleware('/oapi/', {
-            target: 'https://new.dataos.io:8443',
-            changeOrigin: true,
-            secure: false
-        }),
-        proxyMiddleware('/ws/', {
-            target: 'https://new.dataos.io:8443',
-            pathRewrite: {'^/ws/' : '/'},
-            changeOrigin: true,
-            secure: false,
-            ws:true
-        }),
-        proxyMiddleware('/api/', {
-            target: 'https://new.dataos.io:8443',
-            changeOrigin: true,
-            secure: false
-        }),
-        proxyMiddleware('/hawkular/', {
-            target: 'https://hawkular-metrics.new.dataos.io',
-            changeOrigin: true,
-            secure: false
-        })]
+    var arr= []
+    for (var i=0;i<conf.proxy.length;i++){
+    arr.push(proxyMiddleware(conf.proxy[i].path,conf.proxy[i].relay))
+    }
+    server.middleware=arr;
+    //server.middleware = [
+    //    proxyMiddleware('/signin', {
+    //        target: 'https://lab.new.dataos.io',
+    //        changeOrigin: true,
+    //        secure: false
+    //    }),
+    //    proxyMiddleware('/oapi/', {
+    //        target: 'https://new.dataos.io:8443',
+    //        changeOrigin: true,
+    //        secure: false
+    //    }),
+    //    proxyMiddleware('/ws/', {
+    //        target: 'https://new.dataos.io:8443',
+    //        pathRewrite: {'^/ws/' : '/'},
+    //        changeOrigin: true,
+    //        secure: false,
+    //        ws:true
+    //    }),
+    //    proxyMiddleware('/api/', {
+    //        target: 'https://new.dataos.io:8443',
+    //        changeOrigin: true,
+    //        secure: false
+    //    }),
+    //    proxyMiddleware('/hawkular/', {
+    //        target: 'https://hawkular-metrics.new.dataos.io',
+    //        changeOrigin: true,
+    //        secure: false
+    //    })]
+
     //server.middleware = proxyMiddleware('/oapi/', {target: 'https://10.1.130.134:8443', changeOrigin: true});
 
     browserSync.instance = browserSync.init({
