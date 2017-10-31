@@ -10,6 +10,7 @@
             'BlurAdmin.resource',
             'BlurAdmin.pages.dashboard',
             'BlurAdmin.pages.build',
+            'BlurAdmin.pages.build_detail',
             'BlurAdmin.pages.service',
             'BlurAdmin.pages.resourceMgm',
             'BlurAdmin.pages.secretDetail',
