@@ -15,6 +15,7 @@
             'BlurAdmin.pages.resourceMgm',
             'BlurAdmin.pages.secretDetail',
             'BlurAdmin.pages.configDetail',
+            'BlurAdmin.pages.consDetail',
             'BlurAdmin.pages.ui',
             'BlurAdmin.pages.login',
             'BlurAdmin.pages.components',
