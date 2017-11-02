@@ -1,0 +1,19 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="$dismiss()" aria-label="Close">
+        <em class="ion-ios-close-empty sn-link-close"></em>
+    </button>
+    <h4 class="modal-title" id="myModalLabel">{{title}}</h4>
+</div>
+<div class="modal-body" style="text-align: center">
+    <p class="modal-msg">{{txt}}</p>
+    <small class="modal-tip" ng-if="tip">
+        <span class="icon12 icon12-tip"></span>{{tip}}
+    </small>
+</div>
+<div class="modal-footer" ng-if="!iscf" >
+    <button class="btn btn-default" ng-click="cancel()">取消</button>
+    <button class="btn btn-primary" ng-click="ok()">确认</button>
+</div>
+<div class="modal-footer" ng-if="iscf">
+    <button class="btn btn-default" ng-click="ok()">我知道了</button>
+</div>
