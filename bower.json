@@ -56,7 +56,9 @@
     "ng-js-tree": "~0.0.7",
     "angular-ui-select": "^0.19.6",
     "angular-resource": "~1.5.8",
-    "angular-base64": "^2.0.5"
+    "angular-base64": "^2.0.5",
+    "term.js": "^0.0.7"
+
   },
   "resolutions": {
     "angular": "~1.5.9",

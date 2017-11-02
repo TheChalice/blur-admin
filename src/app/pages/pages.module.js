@@ -7,6 +7,7 @@
 
     angular.module('BlurAdmin.pages', [
             'ui.router',
+            'BlurAdmin.kubernetesUI',
             'BlurAdmin.resource',
             'BlurAdmin.pages.dashboard',
             'BlurAdmin.pages.build',

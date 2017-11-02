@@ -7,37 +7,7 @@
         </a>
     </h5>
 </div>
-<div class="modal-body" style="padding: 25px 40px;text-align: left;">
-
-    <!--<div class="table-responsive" ng-if="!grid.show">-->
-        <!--<table class="table table-hover table-default sub-table">-->
-            <!--<tr>-->
-                <!--<th>容器名称</th>-->
-                <!--<th>运行状态</th>-->
-                <!--<th>容器资源</th>-->
-                <!--<th>镜像名称</th>-->
-                <!--<th>镜像版本</th>-->
-            <!--</tr>-->
-            <!--<tr ng-repeat="container in pod.spec.containers">-->
-                <!--<td><a href="javascript:;" ng-click="containerDetail($index)" class="href-orange">{{container.name}}</a></td>-->
-                <!--<td>-->
-                    <!--<span ng-repeat="(k, v) in container.status.state" ng-show="v.hasOwnProperty('reason')">-->
-                        <!--{{v.reason}}-->
-                    <!--</span>-->
-                     <!--<span ng-repeat="(k, v) in container.status.state" ng-show="v.hasOwnProperty('startedAt')">-->
-                        <!--{{k}}-->
-                    <!--</span>-->
-                <!--</td>-->
-                <!--<td>-->
-                    <!--<span ng-if="container.resources.limits">CPU:{{container.resources.limits.cpu}}<br/>内存:{{container.resources.limits.memory}}</span>-->
-                    <!--<span ng-if="!container.resources.limits">无限制</span>-->
-                <!--</td>-->
-                <!--<td>{{container.image | imageStreamName}}</td>-->
-                <!--<td>{{container.tag || 'latest'}}</td>-->
-            <!--</tr>-->
-        <!--</table>-->
-    <!--</div>-->
-
+<div class="modal-body" id="termin" style="padding: 25px 40px;text-align: left;">
     <div class="container-detail">
         <!--<h2><a href="javascript:;" ng-click="back()" class="faa faa-back"></a>&nbsp;&nbsp;{{container.name}}</h2>-->
         <uib-tabset class="tab-default" active="active">
@@ -59,18 +29,8 @@
                 </div>
             </uib-tab>
             <uib-tab index="2" heading="日志">
-                <!--<div style="margin-bottom: 15px;" class="row">-->
-                    <!--<div class="col-md-4">-->
-                        <!--<input type="text" class="form-control" placeholder="关键字" style="margin-right: 20px;">-->
-                    <!--</div>-->
-                    <!--<div class="col-md-8">-->
-                        <!--<date-pick st="grid.st" et="grid.et"></date-pick>-->
-                        <!--<a style="margin-left: 15px;" href="javascript:;" class="btn btn-orange" ng-click="search()">搜索</a>-->
-                    <!--</div>-->
-                <!--</div>-->
-
-                <div class="well well-log" style="margin: 0;">
-                    <pre style="color:#e4e4e4" id="sc" ng-bind-html=log></pre>
+                <div class="well well-log" style="margin: 0;background-color: #000;padding: 0;">
+                    <pre style="background-color: #000;color:#e4e4e4;height: 340px;border:none;padding: 0;" id="sc" ng-bind-html=log></pre>
                 </div>
             </uib-tab>
 
@@ -82,6 +42,56 @@
     </div>
 
     <style>
+        #termin>.container-detail .terminal-wrapper div{
+            color: #e4e4e4;
+        }
+        kubernetes-container-terminal {
+            /*position: relative;*/
+            display: block;
+        }
+
+        kubernetes-container-terminal .terminal {
+            font-family: "Monospace Regular", "DejaVu Sans Mono", Menlo, Monaco, Consolas, monospace;
+            font-size: 17px;
+            font-weight: 500;
+
+
+        }
+
+        @media (min-width: 568px) {
+            kubernetes-container-terminal .terminal {
+                font-size: 12px;
+            }
+        }
+
+        kubernetes-container-terminal .terminal-cursor {
+            color: #000;
+            background: #f0f0f0;
+        }
+
+        kubernetes-container-terminal .terminal-wrapper {
+            /*display: inline-block;*/
+            /*vertical-align: top;*/
+        }
+
+        kubernetes-container-terminal .terminal-actions {
+            /*display: inline-block;*/
+            /*vertical-align: top;*/
+            /*position: relative;*/
+            /*top: 10px;*/
+            /*right: 34px;*/
+            /*z-index: 1;*/
+        }
+
+        /* https://github.com/patternfly/patternfly/pull/135 */
+        .spinner-white {
+            /*border-bottom: 4px solid rgba(255, 255, 255, 0.25) !important;*/
+            /*border-left: 4px solid rgba(255, 255, 255, 0.25) !important;*/
+            /*border-right: 4px solid rgba(255, 255, 255, 0.25) !important;*/
+            /*border-top: 4px solid rgba(255, 255, 255, 0.75) !important;*/
+        }
+
+
         .container-detail .graph {
             padding: 8px;
         }
@@ -107,6 +117,7 @@
             position: absolute;
         }
         .container-detail .terminal-actions .btn {
+            Visibility:hidden;
             background: none;
             border: none;
             box-shadow: none;

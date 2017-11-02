@@ -1,7 +1,6 @@
 'use strict';
-
-define(['angular'], function (angular) {
-    return angular.module('kubernetesUI', [])
+(function () {
+    return angular.module('BlurAdmin.kubernetesUI', [])
         .provider('kubernetesContainerSocket', function() {
             var self = this;
 
@@ -13,7 +12,7 @@ define(['angular'], function (angular) {
                         if (window.location.protocol != "https:") {
                             wsscheme = "ws://";
                         }
-                        url = wsscheme + window.location.host +window.location.pathname +'/ws' + url;
+                        url = wsscheme + window.location.host +window.location.pathname +'ws' + url;
                     }
                     return new window.WebSocket(url, protocols);
                 };
@@ -72,6 +71,7 @@ define(['angular'], function (angular) {
                         });
 
                         outer.empty();
+                        console.log('outer', outer);
                         term.open(outer[0]);
                         term.cursorHidden = true;
                         term.refresh(term.x, term.y);
@@ -87,7 +87,7 @@ define(['angular'], function (angular) {
                             term.reset();
 
                             var url = "";
-
+                            //console.log('url', url);
                             var pod = scope.pod();
                             if (pod.metadata)
                                 url += pod.metadata.selfLink;
@@ -209,4 +209,5 @@ define(['angular'], function (angular) {
                 };
             }
         ]);
-});
+})()
+
