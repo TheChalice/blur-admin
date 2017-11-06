@@ -1,5 +1,25 @@
 #service_creat {
- .add {
-   border: 5px solid #000;
+ .port {
+  table {
+   th {
+    text-align: center;
+   }
+   .form-group {
+    text-align: center;
+    margin-top: 15px;
+   }
+   .deletebtn {
+    margin-top: -5px;
+   }
+  }
+ }
+ .float-r {
+  float: right;
+ }
+ .tac {
+  text-align: center;
+ }
+ .serhlefbtn {
+  width: 80%;
  }
 }

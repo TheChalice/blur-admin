@@ -1,0 +1,146 @@
+<div class="modal-content" id="choose-image">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="$dismiss()" aria-label="Close">
+            <em class="ion-ios-close-empty sn-link-close"></em>
+        </button>
+        <h4 class="modal-title">镜像仓库</h4>
+    </div>
+    <div class="modal-body" style="padding: 20px;">
+        <div ba-panel ba-panel-class="with-scroll">
+            <div class="is-box">
+                <div class="box-fix-left">
+                    <h2>镜像分类</h2>
+                    <ul>
+                        <li><a ng-class="{imageclass:imagetype===0}" ng-click="changeimagetype(0)" href="javascript:;">用户私有镜像仓库</a></li>
+                        <li><a ng-class="{imageclass:imagetype===1}" ng-click="changeimagetype(1)" href="javascript:;">仓库镜像</a></li>
+                    </ul>
+                </div>
+                <div class="box-right">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <h2>镜像</h2>
+                            <div class="is-box-search">
+                                <input type="text" class="form-control model-input" ng-model="imageName" placeholder="镜像">
+                            </div>
+                            <div class="is-box-wrap">
+                                <ul>
+                                    <li ng-repeat="image in images.items">
+
+                                        <a href="javascript:;" ng-class="{'active': grid.image == $index}" ng-click="selectImage($index)">
+                                            <i class="faa faa-check"></i>&nbsp;&nbsp;{{image.metadata.name}}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <h2>镜像版本</h2>
+                            <div class="is-box-search">
+                                <input type="text" class="form-control model-input" ng-model="imageVersion" placeholder="Tag">
+                            </div>
+                            <div class="is-box-wrap">
+                                <p ng-if="isxs">构建失败,无tag</p>
+                                <ul ng-repeat="(k, tag) in imageTags" ng-show="!tag.hide">
+                                    <li ng-repeat="(j, o) in tag.items" ng-show="j < 1">
+                                        <a href="javascript:;" ng-class="{'active': grid.version_x == k && grid.version_y == j}" ng-click="selectVersion(k, j)">
+                                            <i class="faa faa-check"></i>&nbsp;&nbsp;
+                                            <span>{{tag.tag}}</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn" ng-click="cancel()" >取消</button>
+        <button class="btn" ng-click="ok()">确认</button>
+    </div>
+</div>
+
+
+<style>
+    #choose-image .imageclass{
+        background-color: #e6e9f2;
+    }
+
+    #choose-image .is-box {
+        overflow: hidden;
+        border: 1px solid #c9c9c9;
+        border-radius: 2px;
+        position: relative;
+        height: 280px;
+    }
+    #choose-image .is-box .box-fix-left,
+    #choose-image .is-box .box-right,
+    #choose-image .is-box .box-right .row,
+    #choose-image .is-box .box-right .row .col-xs-6,
+    #choose-image .is-box .is-box-wrap {
+        height: 100%;
+    }
+    #choose-image .is-box h2 {
+        font-size: 14px;
+        background: #f5f6fa;
+        margin: 0;
+        padding: 10px;
+        color: #393f4f;
+    }
+    #choose-image .is-box .box-fix-left {
+        float: left;
+        border-right: 1px solid #c9c9c9;
+    }
+    #choose-image .is-box .box-right {
+        overflow: hidden;
+    }
+    #choose-image .is-box .box-right .row {
+        margin: 0;
+    }
+    #choose-image .is-box .box-right .row .col-xs-6 {
+        padding: 0;
+    }
+    #choose-image .is-box .box-right .row .col-xs-6:first-child {
+        border-right: 1px solid #c9c9c9;
+    }
+    #choose-image .is-box ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    #choose-image .is-box ul li a {
+        display: block;
+        padding: 14px 30px;
+        text-align: left;
+    }
+    #choose-image .is-box ul li a:active {
+        color: #5a6378;
+    }
+    #choose-image .is-box ul li a:focus {
+        text-decoration: none;
+    }
+    #choose-image .is-box ul li a.active {
+        background: #e5e6ea;
+        color: #5a6378;
+    }
+    #choose-image .is-box .box-right ul li a {
+        color: #5a6378;
+        text-decoration: none;
+    }
+    #choose-image .is-box .box-right ul li a.active {
+        background: #f5f6fa;
+    }
+    #choose-image .is-box .is-box-wrap {
+        height: 199px;
+        overflow: scroll;
+    }
+    #choose-image .is-box .is-box-search {
+        padding: 5px 15px;
+        background: #e6e9f2;
+    }
+    #choose-image .is-box .is-box-search input {
+        background: #f5f6fa;
+    }
+</style>
