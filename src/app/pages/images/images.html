@@ -38,11 +38,7 @@
         </uib-tab>
         <uib-tab heading="仓库镜像" index="2">
             <div class="row" style="margin-left:-15px;margin-top:20px;">
-                <div class="col-sm-7 col-xs-4">
-                    <button style="margin-right: 30px;" type="button" class="btn btn-primary btn-with-icon"><i class="fa fa-plus fa-lg"></i>新建配置卷</button>
-                    <button type="button" class="btn btn-primary btn-icon" ng-click="newreload()"><i class="ion-loop"></i></button>
-                </div>
-                <div class="col-sm-5 col-xs-8" style="padding-left: 0;">
+                <div class="col-sm-6">
                     <div class="searchbar search_btn">
                         <div class="input-group">
                             <div class="input-group ng-scope">
@@ -58,28 +54,12 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div ba-panel ba-panel-title="配置卷列表" ba-panel-class="with-scroll">
-                <div class="horizontal-scroll">
-                    <table class="table table-hover">
-                        <thead>
-                        <tr class="black-muted-bg">
-                            <th>配置卷名称</th>
-                            <th>创建时间</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr class="no-top-border" ng-repeat="items in configitems">
-                            <td>
-                                <a ui-sref="configDetail({name: items.metadata.name})" uib-tooltip="{{items.metadata.name}}" tooltip-placement="top">{{items.metadata.name}}</a>
-                            </td>
-                            <td><span
-                                    uib-tooltip="{{items.metadata.creationTimestamp  | timescon}}">{{items.metadata.creationTimestamp | dateRelative}} </span>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
+                <div class="col-sm-6" style="padding-left: 0;">
+
                 </div>
+            </div>
+            <div ba-panel ba-panel-title="仓库镜像列表" ba-panel-class="with-scroll">
+
             </div>
             <div class="text-center" ng-if="grid.total > 1" style="margin-top: 30px;">
                 <uib-pagination class="pagination pagination-sm" ng-model="grid.page" total-items="grid.total"
