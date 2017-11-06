@@ -18,13 +18,22 @@ exports.paths = {
   tmp: '.tmp',
   e2e: 'e2e'
 };
-
+//location /v2/ {
+//  proxy_pass http://192.168.1.139:5000;
+//proxy_http_version 1.1;
+//}
 exports.proxy = [
   {
     path:'/signin',
     relay:{
       target: 'https://lab.new.dataos.io',
       changeOrigin: true,
+      secure: false
+    }
+  },{
+    path:'/v2/',
+    relay:{
+      target: 'http://192.168.1.139:5000',
       secure: false
     }
   },{
@@ -42,6 +51,14 @@ exports.proxy = [
       changeOrigin: true,
       secure: false,
       ws:true
+    }
+  },{
+    path:'/registry/',
+    relay:{
+      target: 'https://registry.dataos.io',
+      pathRewrite: {'^/registry/' : '/'},
+      changeOrigin: true,
+      secure: false
     }
   },{
     path:'/api/',

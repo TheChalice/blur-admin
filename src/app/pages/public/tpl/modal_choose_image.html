@@ -1,0 +1,61 @@
+<div class="modal-content" id="choose-image">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="$dismiss()" aria-label="Close">
+            <em class="ion-ios-close-empty sn-link-close"></em>
+        </button>
+        <h4 class="modal-title">镜像仓库</h4>
+    </div>
+    <div class="modal-body" style="padding: 20px;">
+        <div ba-panel ba-panel-class="with-scroll">
+            <div class="is-box">
+                <div class="box-fix-left">
+                    <h2>镜像分类</h2>
+                    <ul>
+                        <li><a ng-class="{imageclass:imagetype===0}" ng-click="changeimagetype(0)" href="javascript:;">用户私有镜像仓库</a></li>
+                        <li><a ng-class="{imageclass:imagetype===1}" ng-click="changeimagetype(1)" href="javascript:;">仓库镜像</a></li>
+                    </ul>
+                </div>
+                <div class="box-right">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <h2>镜像</h2>
+                            <div class="is-box-search">
+                                <input type="text" class="form-control model-input" ng-model="imageName" placeholder="镜像">
+                            </div>
+                            <div class="is-box-wrap">
+                                <ul>
+                                    <li ng-repeat="image in images.items">
+                                        <a href="javascript:;" ng-class="{'active': imageindex == $index}" ng-click="selectImage($index)">
+                                            <i class="faa faa-check"></i>&nbsp;&nbsp;{{image.metadata.name}}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <h2>镜像版本</h2>
+                            <div class="is-box-search">
+                                <input type="text" class="form-control model-input" ng-model="imageVersion" placeholder="Tag">
+                            </div>
+                            <div class="is-box-wrap">
+                                <ul>
+                                    <li ng-repeat="tag in imageTags">
+                                        <a href="javascript:;" ng-class="{'active':imagetag == $index}" ng-click="selectVersion($index)">
+                                            <i class="faa faa-check"></i>&nbsp;&nbsp;
+                                            <span>{{tag.tag}}</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn" ng-click="cancel()" >取消</button>
+        <button class="btn" ng-click="ok()">确认</button>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+#serviceDetilEvent {
+ .table-panel {
+   height:auto;
+   .table th, .table td {
+     vertical-align: middle!important;
+   }
+   .nowrap {
+     white-space:nowrap;
+   }
+ }
+}

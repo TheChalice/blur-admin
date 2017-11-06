@@ -1,0 +1,95 @@
+#choose-image {
+  .active > .faa-check {
+    /*background-position: -41px -220px;*/
+    background-image:url('/assets/img/checked.png');
+    background-repeat:no-repeat;
+    background-position: 0 0; /*by zn for zhongxin*/
+  }
+  .imageclass{
+    background-color: #e6e9f2;
+  }
+  .is-box {
+    .is-box-wrap {
+      height: 199px;
+      overflow: scroll;
+    }
+    .is-box-search {
+      input {
+        background: #f5f6fa;
+      }
+      padding: 5px 15px;
+      background: #e6e9f2;
+    }
+    ul {
+      li {
+        a {
+          display: block;
+          padding: 14px 30px;
+          text-align: left;
+        }
+        a:active {
+          color: #5a6378;
+        }
+        a:focus {
+          text-decoration: none;
+        }
+        a.active {
+          background: #e5e6ea;
+          color: #5a6378;
+        }
+      }
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .box-fix-left {
+      height: 100%;
+      float: left;
+      border-right: 1px solid #c9c9c9;
+      ul {
+        height: 100%;
+      }
+    }
+    h2 {
+      font-size: 14px;
+      background: #f5f6fa;
+      margin: 0;
+      padding: 10px;
+      color: #393f4f;
+    }
+    .is-box-wrap {
+      height: 100%;
+    }
+    .box-right {
+      ul {
+        li {
+          a {
+            color: #5a6378;
+            text-decoration: none;
+          }
+          a.active {
+            background: #f5f6fa;
+          }
+        }
+      }
+      height: 100%;
+      overflow: hidden;
+      .row {
+        margin: 0;
+        height: 100%;
+        .col-xs-6:first-child {
+          border-right: 1px solid #c9c9c9;
+        }
+        .col-xs-6 {
+          padding: 0;
+          height: 100%;
+        }
+      }
+    }
+    overflow: hidden;
+    border: 1px solid #c9c9c9;
+    border-radius: 2px;
+    position: relative;
+    height: 280px;
+  }
+}

@@ -1,1 +1,0 @@
-/** * Created by sorcerer on 2017/10/25. */(function () {    'use strict';    angular.module('BlurAdmin.pages.servicedetil')        .controller('servicedetilCtrl', servicedetilCtrl);    /** @ngInject */    function servicedetilCtrl() {    }})();
