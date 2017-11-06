@@ -7,6 +7,7 @@
 
     angular.module('BlurAdmin.pages', [
             'ui.router',
+            'BlurAdmin.kubernetesUI',
             'BlurAdmin.resource',
             'BlurAdmin.pages.dashboard',
             'BlurAdmin.pages.build',
@@ -15,6 +16,8 @@
             'BlurAdmin.pages.service',
             'BlurAdmin.pages.resourceMgm',
             'BlurAdmin.pages.secretDetail',
+            'BlurAdmin.pages.servicedetil',
+            'BlurAdmin.pages.servicecreat',
             'BlurAdmin.pages.configDetail',
             'BlurAdmin.pages.consDetail',
             'BlurAdmin.pages.ui',

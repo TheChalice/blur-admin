@@ -27,8 +27,10 @@ angular.module('BlurAdmin', [
         host_k8s: '/api/v1',
         host_wss: '/ws/oapi/v1',
         host_wss_k8s: '/ws/api/v1',
+        host_registry: '/registry/api',
         login_uri: '/login',
         signin_uri: '/signin',
+        common_url:'registry.dataos.io',
         host_hawkular: '/hawkular/metrics',
         host_webhooks: 'https://dev.dataos.io:8443'
     })
