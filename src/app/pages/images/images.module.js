@@ -15,7 +15,7 @@
             .state('images', {
                 url: '/images',
                 templateUrl: 'app/pages/images/images.html',
-                controller: 'imagesCtrl',
+                controller: 'ImageCtrl',
                 title: 'Images',
                 sidebarMeta: {
                     icon: 'ion-android-home',
