@@ -1,0 +1,93 @@
+<div class="widgets">
+    <uib-tabset active="$tabSetStatus.activeTab">
+        <uib-tab heading="构建镜像" index="1">
+            <div class="row" style="margin-left:-15px;margin-top:20px;">
+                <div class="col-sm-6">
+                    <div class="searchbar search_btn">
+                        <div class="input-group">
+                            <div class="input-group ng-scope">
+                                <input type="text" class="form-control with-danger-addon"
+                                       placeholder="搜索关键字"
+                                       ng-model="grid.txt"
+                                       ng-keyup="search(grid.txt)"
+                                >
+                                <span class="input-group-btn">
+                                    <button class="btn btn-danger" type="button" ng-click="search(grid.txt)"><i class="ion-search"></i></button>
+                              </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6" style="padding-left: 0;">
+
+                </div>
+            </div>
+            <div ba-panel ba-panel-title="构建镜像列表" ba-panel-class="with-scroll">
+                <div class="row">
+                    <div class="col-md-3 col-sm-4 col-xs-6" ng-repeat="item in newimage">
+                        <c-card></c-card>
+                    </div>
+
+                    <div style="margin: 0 15px;text-align: center;background:#f7f8fb;position:relative;border:1px solid #ccc;padding-top:15px;padding-bottom:15px;"
+                         ng-if="newimage.length===0"><p class="blank_block">  <span class="blank_tit">没有符合的数据</span></p></div>
+
+                </div>
+
+            </div>
+            <div class="text-center" ng-if="grid.total > 0" style="margin-top: 30px;">
+                <uib-pagination class="pagination pagination-sm" ng-model="grid.page" total-items="grid.total"
+                                items-per-page="grid.size" boundary-links="false" max-size="12" rotate="true"
+                                previous-text="<"
+                                next-text=">"
+                >
+                </uib-pagination>
+
+            </div>
+
+        </uib-tab>
+        <uib-tab heading="仓库镜像" index="2">
+            <div class="row" style="margin-left:-15px;margin-top:20px;">
+                <div class="col-sm-6">
+                    <div class="searchbar search_btn">
+                        <div class="input-group">
+                            <div class="input-group ng-scope">
+                                <input type="text" class="form-control with-danger-addon"
+                                       placeholder="搜索关键字"
+                                       ng-model="grid.cktxt"
+                                       ng-keyup="ckSearch(grid.cktxt)"
+                                >
+                                <span class="input-group-btn">
+                                       <button class="btn btn-danger" type="button" ng-click="search(grid.cktxt)"><i class="ion-search"></i></button>
+                                 </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6" style="padding-left: 0;">
+
+                </div>
+            </div>
+            <div ba-panel ba-panel-title="仓库镜像列表" ba-panel-class="with-scroll">
+                <div class="row">
+                    <div class="col-md-3 col-sm-4 col-xs-6" ng-repeat="item in newCkImage">
+                        <c-card></c-card>
+                    </div>
+
+                    <div style="margin: 0 15px;text-align: center;background:#f7f8fb;position:relative;border:1px solid #ccc;padding-top:15px;padding-bottom:15px;"
+                         ng-if="newCkImage.length===0"><p class="blank_block">  <span class="blank_tit">没有符合的数据</span></p></div>
+
+                </div>
+
+            </div>
+            <div class="text-center" ng-if="grid.ckTotal > 1" style="margin-top: 30px;">
+                <uib-pagination class="pagination pagination-sm" ng-model="grid.ckpage" total-items="grid.ckTotal"
+                                items-per-page="grid.size" boundary-links="false" max-size="12" rotate="true"
+                                previous-text="<"
+                                next-text=">"
+                >
+                </uib-pagination>
+
+            </div>
+        </uib-tab>
+    </uib-tabset>
+</div>
