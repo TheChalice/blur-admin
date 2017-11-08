@@ -29,6 +29,7 @@ angular.module('BlurAdmin', [
         host_wss: '/ws/oapi/v1',
         host_wss_k8s: '/ws/api/v1',
         host_registry: '/registry/api',
+        host_newk8s: '/apis/autoscaling/v1',
         login_uri: '/login',
         signin_uri: '/signin',
         common_url:'registry.dataos.io',
