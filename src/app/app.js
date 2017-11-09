@@ -30,9 +30,11 @@ angular.module('BlurAdmin', [
         host_registry: '/registry/api',
         login_uri: '/login',
         signin_uri: '/signin',
+        host_lapi: '/lapi',
         common_url:'registry.dataos.io',
         host_hawkular: '/hawkular/metrics',
-        host_webhooks: 'https://dev.dataos.io:8443'
+        host_webhooks: 'https://dev.dataos.io:8443',
+        host_payment: '/payment/v1'
     })
     .constant('AUTH_EVENTS', {
         loginNeeded: 'auth-login-needed',
