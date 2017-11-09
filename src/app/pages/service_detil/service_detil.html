@@ -1,1 +1,529 @@
-<div>12312312</div>
+<div class="det_main col-md-12">
+    <div style="background-color: #E7EAF0;height:40px; padding:5px; ">
+        <div>
+            <img class="img1" src="assets/img/app/service_del_images/images_104.png" alt="sss">datahub
+            <button class="btn1"
+                    style="background-image: url(assets/img/app/service_del_images/images_104.png);"></button>
+            <button class="btn2">构建</button>
+        </div>
+    </div>
+    <div style="height:60px;padding: 10px; " class="col-md-12">
+        <div class="content1 col-md-4">
+            <div style="line-height: 20px;">
+                <img class="img2" src="assets/img/app/service_del_images/images_104.png" alt="sss">
+                <ul style="list-style: none;">
+                    <li>sdad</li>
+                    <li>sdad</li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="content1 col-md-4">
+            <img class="img2" src="assets/img/app/service_del_images/images_104.png" alt="sss">
+            <ul style="list-style: none;">
+                <li>代码URL</li>
+            </ul>
+        </div>
+        <div class="content1 col-md-4">
+            <img class="img2" src="assets/img/app/service_del_images/images_104.png" alt="sss">
+            <ul style="list-style: none;">
+                <li>镜像dasd</li>
+            </ul>
+        </div>
+    </div>
+
+
+</div>
+<div class="panel-body" ng-transclude>
+    <span class="ng-scope">
+
+    </span>
+</div>
+
+
+<div>
+    <uib-tabset active="$tabSetStatus.activeTab">
+
+        <uib-tab heading="Start">
+            This content is straight in t
+            <div id="serves-deltai" class="row accordions-row">
+                <div class="col-md-12">
+                    <uib-accordion>
+                        <uib-accordion-group style="background-color:#000;" is-open="true"
+                                             heading="Static Header, initially expanded"
+                                             panel-class="bootstrap-panel accordion-panel panel-default">
+                            This content is straight in t
+
+                            <span></span>
+                        </uib-accordion-group>
+
+                    </uib-accordion>
+                </div>
+
+            </div>
+        </uib-tab>
+        <uib-tab heading="配置信息">
+
+
+            <div class="col-md-12">
+                <uib-accordion>
+                    <uib-accordion-group style="background-color:#ffffff;" is-open="true"
+                                         heading="Static Header, initially expanded"
+                                         panel-class="bootstrap-panel accordion-panel panel-default">
+                        <div class="ng-scope" style="padding: 15px 100px">
+                            <div class="row">
+                                <div class="col-md-4">基础配置</div>
+                            </div>
+                            <div id="add_rq1" style="margin-top:20px;">
+                                <span>POD配置* </span>
+                                <span>
+                                    <button type="button" class="btn btn-primary" ng-click="test()">添加容器</button>
+                                </span>
+
+                            </div>
+
+                            <div class=" col-md-12">
+                                <uib-accordion>
+                                    <uib-accordion-group style="background-color:#ffffff;" is-open="false"
+                                                             heading="Static Header, initially expanded"
+                                                             panel-class="bootstrap-panel accordion-panel panel-default">
+
+                                         <span>
+                                        <button  type="button" class="btn btn-primary" ng-click="open('app/pages/service_detil/chooseMirror.html','md')">选择镜像</button>
+                                    </span>
+
+                                        <div style="margin:20px 0;">
+                                            <input type="checkbox" id="inlineCheckbox01" value="option1">镜像变化触发自动部署
+                                        </div>
+                                        <div class="modal-buttons clearfix">
+                                            <button  type="button" class="btn btn-primary" data-toggle="modal" ng-click="open('app/pages/service_detil/addVolumePage.html','md')">添加卷+</button>
+                                        </div>
+                                        <div style="margin:10px 0;">
+                                            <span>可用性探测</span>
+                                            <span>
+                                                <div ng-controller="SwitchDemoPanelCtrl as vm">
+                                                  <ba-switcher switcher-style="primary" switcher-value="vm.switches.s1"></ba-switcher>
+                                                </div>
+                                            </span>
+                                        </div>
+
+
+                                    </uib-accordion-group>
+                                </uib-accordion>
+                              <div class="panel panel-primary contextumple-paal-exanel bootstrap-panel" style="margin: 20px 0;height: auto;" ng-repeat="arr in testarr">
+                                    <!--<</b>b>Hello World!
+                                    ba-panel-class="with-scroll lists-widget"-->
+                                    <div class="panel-heading clearfix"style="padding:10px;" >aaaa <button  type="button" class="btn btn-primary" ng-click="del($index)">X</button></div>
+                                    <div class="panel-body">
+                                        <input type="text" style="margin:0 auto;width: 100%" placeholder="请设置容器名称" ng-model="arr.name">
+                                        <div style="margin-top: 10px;">
+                                              <button  type="button" class="btn btn-primary">选择镜像</button>
+                                        </div>
+                                        <div style="margin-top: 10px;">
+                                          <input type="checkbox" id="inlineCheckbox02" value="option1">镜像变化触发自动部署
+                                        </div>
+                                   
+                                        <div style="margin-top: 10px;">
+                                            <span>可用性探测</span>
+                                            <span ng-controller="SwitchDemoPanelCtrl as vm">
+                                              <ba-switcher switcher-style="primary" switcher-value="vm.switches.s1"></ba-switcher>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                               <div>
+                                   <span>端口开放</span>
+                                   <span>
+                                       <button type="button" class="btn btn-primary" ng-click="portOpen()">添加端口</button>
+                                   </span>
+                               </div>
+                               <div ng-show="addProtTitle" class="panel panel-primary contextual-example-panel bootstrap-panel" style="margin-top:20px;height: auto;" >
+                                     <div class=" panel-heading clearfix" style="padding:10px;" >
+                                         <div class="col-sm-3">协议</div>
+                                         <div class="col-sm-3">容器端口</div>
+                                         <div class="col-sm-3">服务端口</div>
+                                         <div class="col-sm-3"></div>
+                                     </div>
+                                     <div class="row" style="margin-top:10px;line-height: 40px;" ng-repeat="arr in portOpenArr">
+                                         <div class="col-sm-3">
+                                             <select class="btn-group dropdown">
+                                                   <option>TCP</option>
+                                                   <option>UDP</option>
+                                             </select>
+                                         </div>
+                                         <div class="col-sm-3">
+                                             <input style="height:30px;" type="text">
+                                         </div>
+                                         <div class="col-sm-3">
+                                             <input style="height:30px;" type="text">
+                                         </div>
+                                         <div class="col-sm-3">
+                                             <button type="button" class="btn btn-primary" ng-click="delPort()">X</button>
+                                         </div>
+                                     </div>
+                               </div>
+                               <p style="margin-top:30px;">高级配置</p>
+                                <div style="margin-top:20px;">
+                                    <div class="row" style="margin-top: 20px;">
+                                        <div class="col-md-2">服务高可用</div>
+                                        <div class="col-md-2">POD数量</div>
+                                        <div class="col-md-2">
+                                            <input type="text" placeholder="1">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="row" style="margin-top: 20px;">
+                                        <div class="col-md-2">路由设置</div>
+                                        <div class="col-md-10">
+                                            <div class="row col-md-12">
+                                                    <ba-switcher switcher-style="primary" switcher-value="teston" ng-click="onoroff()"></ba-switcher>
+                                            </div>
+                                            <div ng-if="teston">
+                                                <div class="row" style="margin-top: 20px;" >
+                                                    <div class="col-md-2">
+                                                        <div class="btn-group" uib-dropdown dropdown-append-to-body>
+                                                            <button type="button" class="btn btn-default " uib-dropdown-toggle>
+                                                                Default <span class="caret"></span>
+                                                            </button>
+                                                            <ul uib-dropdown-menu>
+                                                                <li><a href>Action</a></li>
+                                                                <li><a href>Another action</a></li>
+                                                                <li><a href>Something else here</a></li>
+                                                                <li role="separator" class="divider"></li>
+                                                                <li><a href>Separated link</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="btn-group" uib-dropdown dropdown-append-to-body>
+                                                            <button type="button" class="btn btn-success " uib-dropdown-toggle>
+                                                                Success <span class="caret"></span>
+                                                            </button>
+                                                            <ul uib-dropdown-menu>
+                                                                <li><a href>Action</a></li>
+                                                                <lbi><a href>Another action</a></lbi>
+                                                                <li><a href>Something else here</a></li>
+                                                                <li role="separator" class="divider"></li>
+                                                                <li><a href>Separated link</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-5" style="line-height: 22px;">
+                                                        <input style="width: 100%" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="row" style="margin-top: 20px;">
+                                                    <div class="col-md-10" ng-controller="SelectpickerPanelCtrl as selectpickerVm">
+                                                        <div class="form-group">
+                                                            <ui-select ng-model="selectpickerVm.selectedItem.selected"
+                                                                       class="btn-group bootstrap-select form-control">
+                                                                <ui-select-match placeholder="Standard Select">
+                                                                    <span> {{$select.selected.label}}</span>
+                                                                </ui-select-match>
+                                                                <ui-select-choices repeat="standardItem in selectpickerVm.standardSelectItems | filter: $select.search">
+                                                                    <span ng-bind-html="standardItem.label"></span>
+                                                                </ui-select-choices>
+                                                            </ui-select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 20px;">
+                                      <div class="col-md-2">环境变量设置</div>
+                                      <div class="col-md-10">创建环境变量</div>
+                                </div>
+                               <div class="row" style="margin-top: 20px;">
+                                <div class="col-md-2">自动部署</div>
+                               <div class="col-md-10">
+                                     <input type="checkbox" id="inlineCheckbox03" value="option1">镜像变化触发自动部署
+                               </div>
+
+                               </div>
+                            </div>
+                        </div>
+                            <!--<div style="background:#fff;border:1px solid #666;width: 100%;height: 100px;margin-top:20px;position: relative;top:100px;" ng-repeat="arr in testarr">-->
+                                <!--<b>Hello World!</b>-->
+                            <!--</div>-->
+                         <!--   <div style="margin-top:20px;">
+                                <span>端口开放 </span>
+                                <span>
+                                    <i>+</i>添加端口
+                                </span>
+
+                            </div>
+                            <p style="margin-top:30px;">高级配置</p>
+                            <div style="margin-top:20px;">
+                                <div class="row">
+                                    <div class="col-md-2">服务高可用</div>
+                                    <div class="col-md-2">POD数量</div>
+                                    <div class="col-md-3">
+                                        <input type="text" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:20px;">
+                                <div class="col-md-2">路由设置</div>
+                                <div class="col-md-10"><button>123</button></div>
+
+                            </div>
+                            <div class="row" style="margin-top:20px;">
+                                <div class="col-md-2">环境变量设置</div>
+                                <div class="col-md-10"><i>+</i>创建环境变量</div>
+                            </div>
+                            <div class="row" style="margin-top: 20px;">
+                                <div class="col-md-2">自动部署</div>
+                                <div class="col-md-10"><button>123</button></div>
+
+                            </div>-->
+
+                        <button class="btn" style="text-align: center;background-color:orange; width:100%;margin:10px 0">123</button>
+
+                        <span></span>
+                    </uib-accordion-group>
+
+                </uib-accordion>
+
+
+                <uib-accordion>
+                    <uib-accordion-group style="background-color:#fff;" is-open="false"
+                                         panel-class="bootstrap-panel accordion-panel panel-default">
+                        <div class="ng-scope" style="padding: 15px 10px">
+                            <div class="row">
+                                <div class="col-md-2">基础配置</div>
+                                <div class="col-md-10" style="height:1px;margin-top:5px;background-color:#666;"></div>
+                            </div>
+                            <div style="margin-top:20px;">
+                                <span>POD配置* </span>
+                                <span>
+                                    <i id="btn">+</i>创建环境变量
+                                </span>
+
+                            </div>
+                            <div style="clear:both;width:800px;height:auto;margin:0 auto;margin-top: 20px;padding:30px;">
+                                <button type="button" class="col-md-2 btn">选择镜像</button>
+                                <div class="col-md-10" style="margin-top: 50px;">
+                                    <table style="margin: 20px 0" class="table table-bordered">
+                                        <tbody>
+                                        <tr>
+                                            <td style="width: 20%;background-color: #f7f8fb;">镜像名称</td>
+                                            <td>1</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 20%;background-color: #f7f8fb;">镜像版本</td>
+                                            <td>2</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div>
+                                    <p class="col-md-2"></p>
+                                    <div class="col-md-10">
+                                        <table style="margin:20px 0;" class="table table-bordered">
+                                            <thead>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td style="width: 20%;background-color: #f7f8fb;vertical-align: middle;">镜像名称</td>
+                                                <td>1</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 20%;background-color: #f7f8fb;vertical-align: middle;">镜像版本</td>
+                                                <td>2</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <p class="col-md-2"></p>
+                                    <div class="col-md-10">
+                                        <table style="margin:20px 0;" class="table table-bordered">
+
+                                            <tbody>
+                                            <tr>
+                                                <td rowspan="2" style="width: 20%;background-color: #f7f8fb;vertical-align: middle;">镜像名称</td>
+                                                <td>1</td>
+
+                                            </tr>
+                                            <tr>
+
+                                                <td>2</td>
+                                            </tr>
+                                            <tr>
+                                                <td rowspan="2" style="width: 20%;background-color: #f7f8fb;vertical-align: middle;">镜像版本</td>
+                                                <td>1</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                            </tr>
+
+
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+
+                                    <div>
+                                        <p class="col-md-2">端口开放</p>
+                                        <div class="col-md-10"><i>+</i>添加端口</div>
+                                        <!--<div >-->
+                                        <table class="col-md-10" style="text-align:center;margin-top:20px;
+                                            margin-bottom:20px;border:1px solid #000;">
+                                            <!--<thead style="background-color: #f7f8fb;">-->
+                                            <!--<tr>-->
+                                            <!--<td style="width: 30%;height: 20px;">协议<td/>-->
+                                            <!--<td style="width: 30%;">容器端口<td/>-->
+                                            <!--<td style="width: 30%;">服务端口<td/>-->
+                                            <!--</tr>-->
+                                            <!--</thead>-->
+                                            <!--<tbody>-->
+                                            <!--<tr><td>1</td></tr>-->
+                                            <!--<tr><td>2</td></tr>-->
+                                            <!--</tbody>-->
+                                            <tr style="width: 30%;height: 20px;border-bottom: solid 1px #f3f3f3;">
+                                                <td>1</td>
+                                                <td>2</td>
+                                                <td>3</td>
+                                            </tr>
+                                            <tr style="width: 30%;height: 20px;border-bottom: solid 1px #f3f3f3;">
+                                                <td>1</td>
+                                                <td>2</td>
+                                                <td>3</td>
+                                            </tr>
+                                            <tr style="width: 30%;height: 20px;border-bottom: solid 1px #f3f3f3;">
+                                                <td>1</td>
+                                                <td>2</td>
+                                                <td>3</td>
+                                            </tr>
+                                        </table>
+                                        <!--</div>-->
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2">高级配置</div>
+                                    <div class="col-md-10"
+                                         style="height:1px;margin-top:5px;background-color:#666;"></div>
+                                </div>
+                                <div class="row" style="margin-top:10px; border-bottom: 1px solid #000;">
+                                    <div class="col-md-2">服务高可用</div>
+                                    <div class="col-md-10">
+
+                                        <div class="row"
+                                             style="margin-bottom:10px;border-bottom: 1px solid #000;padding-bottom:10px;">
+                                            <!--<div class="col-md-3">2</div>-->
+                                            <div class="col-md-3">POD数量</div>
+                                            <div class="col-md-3">4</div>
+
+                                        </div>
+                                        <div class="row"
+                                             style="margin-bottom:10px;border-bottom: 1px solid #000;padding-bottom:10px;">
+                                            <!--<div class="col-md-3">2</div>-->
+                                            <div class="col-md-3">自动伸缩</div>
+                                            <div class="col-md-3">4</div>
+
+                                        </div>
+
+                                        <div class="row" style="padding-bottom:10px;">
+                                            <!--<div class="col-md-3">2</div>-->
+                                            <div class="col-md-3">重启策略</div>
+                                            <div class="col-md-3">4</div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="row" style="margin-top:10px; border-bottom:1px solid #000; margin-bottom:10px;">
+                                    <div class="col-md-2">路由设置</div>
+                                    <div class="col-md-10" style="padding-bottom:10px;">2</div>
+                                </div>
+                                <div class="row" style="margin-top:10px; border-bottom:1px solid #000; margin-bottom:10px;">
+                                    <div class="col-md-2">后端服务绑定</div>
+                                    <div class="col-md-10">
+                                        <div class="row">
+                                            <div class="col-md-2">创建</div>
+                                            <div class="col-md-2">马上创建</div>
+                                            <div class="col-md-2" style="padding-bottom:10px;">3</div>
+                                        </div>
+                                        <div class="row col-md-10" style="padding-bottom:10px;">4
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="row" style="margin-top:10px; border-bottom:1px solid #000; margin-bottom:10px;">
+                                    <div class="col-md-2">环境变量设置</div>
+                                    <div class="col-md-10">
+                                        <div class="row col-md-10">创建环境变量</div>
+                                        <div class="row col-md-10" style="margin-top:10px; padding-bottom:10px;">4
+
+
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                                <div class="row" style="margin-top:10px; border-bottom:1px solid #000; margin-bottom:10px;">
+                                    <div class="col-md-2">自动部署</div>
+                                    <div class="col-md-10" style="padding-bottom:10px;">2</div>
+                                </div>
+                                <div class="row" style="margin-top:10px; border-bottom:1px solid #000; margin-bottom:10px;">
+                                    <div class="col-md-2">性能监控</div>
+                                    <div class="col-md-10" style="padding-bottom:10px;">2</div>
+                                </div>
+                                <div class="row" style="margin-top:10px; border-bottom:1px solid #000; margin-bottom:10px;">
+                                    <div class="col-md-2">告警服务</div>
+                                    <div class="col-md-10" style="padding-bottom:10px;">2</div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                        <button class="btn" style="text-align: center;background-color:orange; width:100%;">123</button>
+                    </uib-accordion-group>
+
+                </uib-accordion>
+            </div>
+        </uib-tab>
+    </uib-tabset>
+</div>
+
+<style>
+    .abc{
+        width: 100px;
+        height: 100px;
+        background-color: red;
+    }
+    #serves-deltai .panel-body {
+        height: 200px;
+    }
+    .remove_btn{
+        float: right;
+    }
+</style>
+<script type="text/javascript">
+//    document.getElementById("add_rq").click(function(){
+//        document.getElementById("add_rq").append("")
+//    });
+
+//    $(document).ready(function(){
+//        $("#add_rq").click(function(){
+//            $("#add_rq1").append("<div class='abc' >23dad<button class='remove_btn'>X</button>></div>");
+//            $(".remove_btn").click(function(){
+//                $("div.remove_btn").remove("#add_rq1");
+//            })
+//        });
+//
+//    });
+</script>
+
+

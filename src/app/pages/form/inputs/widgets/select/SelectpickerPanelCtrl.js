@@ -34,9 +34,9 @@
     vm.groupedItem = {};
     vm.groupedSelectItems = [
       {label: 'Group 1 - Option 1', value: 1, group: 'Group 1'},
-      {label: 'Group 2 - Option 2', value: 2, group: 'Group 2'},
-      {label: 'Group 1 - Option 3', value: 3, group: 'Group 1'},
-      {label: 'Group 2 - Option 4', value: 4, group: 'Group 2'}
+        {label: 'Group 2 - Option 2', value: 2, group: 'Group 2'},
+        {label: 'Group 1 - Option 3', value: 3, group: 'Group 1'},
+        {label: 'Group 2 - Option 4', value: 4, group: 'Group 2'}
     ];
 
     vm.groupedByItem = {};

@@ -1,0 +1,81 @@
+
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="$dismiss()" aria-label="Close">
+            <em class="ion-ios-close-empty sn-link-close"></em>
+        </button>
+        <h4 class="modal-title" id="myModalLabel" style="background-color:#666;">添加卷</h4>
+    </div>
+    <div class="modal-body">
+        <table style="border: 1px solid #666;">
+            <div class="row col-md-12">
+                <div class="col-md-3">
+                    <button class="no_btn">挂载密钥</button>
+                </div>
+                <div class="col-md-9">
+                    如果没有秘钥，请先创建密钥
+                </div>
+            </div>
+            <div class="row" style="margin-left:10px;">
+                <!--<input class="col-sm-4" style="height:30px;" type="text">
+                <div class="col-sm-3 btn-group" uib-dropdown dropdown-append-to-body>
+                    <button type="button" class="btn btn-default " uib-dropdown-toggle>
+                        Default <span class="caret"></span>
+                    </button>
+                    <ul uib-dropdown-menu >
+                        <li><a href>Action</a></li>
+                        <li><a href>Another action</a></li>
+                        <li><a href>Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href>Separated link</a></li>
+                    </ul>
+                </div>-->
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <ui-select ng-model='thisName.selected'
+                                   class="btn-group bootstrap-select form-control">
+                            <ui-select-match placeholder="名称">
+                                <span> {{$select.selected.label}}</span>
+                            </ui-select-match>
+                            <ui-select-choices repeat="standardItem in standardSelectItems">
+                                <span ng-bind-html="standardItem.label"></span>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+                </div>
+                <input class="col-sm-3" style="height:30px;margin-left:10px;" type="text">
+                <button type="button" class="col-sm-1 btn btn-primary" ng-click="delPort()">X</button>
+
+            </div>
+            <div class="row col-md-12">
+                <div class="col-md-3">
+                    <button class="no_btn">挂载密钥</button>
+                </div>
+                <div class="col-md-9">
+                    如果没有秘钥，请先创建密钥
+                </div>
+            </div>
+            <div class="row col-md-12">
+                <div class="col-md-3">
+                    <button class="no_btn">挂载密钥</button>
+                </div>
+                <div class="col-md-9">
+                    如果没有秘钥，请先创建密钥
+                </div>
+            </div>
+
+        </table>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" ng-click="$dismiss()">Save changes</button>
+    </div>
+</div>
+<style>
+    .no_btn{
+        margin:0;
+        padding:0;
+        list-style-type:none;
+        background-color:transparent;
+        border: none;
+    }
+</style>
