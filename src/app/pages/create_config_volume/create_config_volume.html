@@ -1,0 +1,118 @@
+<div class="widgets">
+    <form class="form-horizontal" name="frm" >
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <span style="font-size: 16px; color: #5a6378">新建配置卷</span>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label text-left" style="margin-top: 10px; color: #5a6378; font-size:14px; text-align: left; font-weight: normal">配置卷名称</label>
+                    <div class="col-sm-10" style="padding-right: 40px; ">
+                        <input ng-model="volume.metadata.name"
+                               style="margin-top: 10px; width: 640px;" type="text" name="username"
+                               ng-blur="nameblur()"
+                               onkeypress="if((event.keyCode > 31 && event.keyCode < 44) || (event.keyCode > 46 && event.keyCode < 48) || (event.keyCode > 57 && event.keyCode < 65) || (event.keyCode > 90 && event.keyCode < 97))event.returnValue = false;"
+                               ng-focus="namefocus()"
+                               class="form-control" required
+                               placeholder="创建一个配置卷名称">
+                        <small ng-if="namerr.nil" class="fa fa-info-circle err-tip">请输入正确构建名称
+                        </small>
+                        <small ng-if="namerr.rexed" class="fa fa-info-circle err-tip">请输入4~30位名称,名称只能包含英文、数字以及“-”
+                        </small>
+                        <small ng-if="namerr.repeated" class="fa fa-info-circle err-tip">输入的名称已重复
+                        </small>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 add" style="margin-bottom: 20px;">
+                        <a href="javascript:;" class="href-add" style="position:relative;" ng-click="add()">
+                            <i class="fa fa-plus-circle fa-lg"></i>&nbsp;&nbsp;<span
+                                style="font-size: 12px;">添加配置文件</span>
+                            <input type="file" id="file-input" value="选择"/>
+                        </a>
+
+                    </div>
+                    <div class="col-md-2 add" style="margin-bottom: 20px;">
+                        <a href="javascript:;" class="href-add" style="margin-left: -13px" ng-click="addConfig($index)">
+                            <i class="fa fa-plus-circle fa-lg"></i>&nbsp;&nbsp;<span
+                                style="font-size: 12px;">创建</span>
+                        </a>
+
+                    </div>
+                    <div class="col-md-8">
+                        <!--<small class="fa fa-info-circle err-tip">&nbsp;请至少保留一个密钥项</small>-->
+                        <small class="fa fa-info-circle err-tip" ng-if="grid.keychongfu">&nbsp;key重复</small>
+                        <small class="fa fa-info-circle err-tip" ng-if="grid.keybuhefa">&nbsp;key不合法</small>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div ng-repeat="item in volume.configarr" style="margin-top:10px;border:1px solid rgba(0, 0, 0, 0.12);padding:8px 0px;">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <input class="form-control" type="text" ng-model="item.key"
+                                               placeholder="Key">
+                                    </div>
+                                    <div class="col-sm-5">
+
+                                    </div>
+                                    <div class="col-sm-3 text-right" style="font-size: 20px;margin-top:8px;">
+                                        <i class="ion-navicon-round" style="margin-right:15px;" uib-tooltip="查看内容"
+                                           ng-click="getLog($index)"
+                                        ></i>
+
+                                        <i ng-click="deletekv($index)" class="ion-close-round"
+                                           uib-tooltip="删除"
+                                        ></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div uib-collapse="!item.showLog">
+                                <div class="well well-log"
+                                     style='border:none'>
+                                    <textarea placeholder="Default Input" class="form-control" id="textarea01" ng-model="item.value" ></textarea>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row" style="margin-bottom: 10px;margin-top:10px;"
+                             ng-repeat="item in volume.configitems">
+                            <div class="col-md-4">
+                                <input class="form-control" type="text" placeholder="KEY" ng-model="item.key" >
+                            </div>
+
+                            <div class="col-md-2"></div>
+                            <div class="col-md-5">
+                                <textarea class="form-control key" type="text" placeholder="VALUE" ng-model="item.value" style="height:34px;"></textarea>
+                            </div>
+                            <div class="col-md-1 text-right">
+                                <i class="ion-close-round " ng-click="rmsecret($index)" style="font-size: 20px;margin-right:15px;"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center">
+            <button  ng-if="!frm.$invalid&&grid.configpost" class="btn btn-primary" style="width: 50%;" ng-click="cearteconfig()">创建配置卷</button>
+            <button  ng-if="!grid.configpost" disabled="disabled" class="btn btn-primary" style="width: 50%;" >创建配置卷</button>
+        </div>
+    </form>
+</div>
+<style>
+    .panel-heading{
+        height:auto;
+    }
+    #file-input {
+        position: absolute;
+        right: 0;
+        top: 0;
+        opacity: 0;
+        filter: alpha(opacity=0);
+        width: 110px;
+        height: 24px
+    }
+</style>
