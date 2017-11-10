@@ -14,6 +14,7 @@ angular.module('BlurAdmin', [
         'BlurAdmin.resource',
         'BlurAdmin.service',
         'BlurAdmin.controller',
+        'BlurAdmin.template',
         'angular-progress-button-styles',
         'BlurAdmin.theme',
         'BlurAdmin.pages',
@@ -28,13 +29,16 @@ angular.module('BlurAdmin', [
         host_wss: '/ws/oapi/v1',
         host_wss_k8s: '/ws/api/v1',
         host_registry: '/registry/api',
+        host_newk8s: '/apis/autoscaling/v1',
         login_uri: '/login',
         signin_uri: '/signin',
         host_lapi: '/lapi',
         common_url:'registry.dataos.io',
+        service_url:'.cloud.new.dataos.io',
         host_hawkular: '/hawkular/metrics',
         host_webhooks: 'https://dev.dataos.io:8443',
         host_payment: '/payment/v1'
+
     })
     .constant('AUTH_EVENTS', {
         loginNeeded: 'auth-login-needed',

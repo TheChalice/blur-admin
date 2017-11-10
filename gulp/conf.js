@@ -18,10 +18,7 @@ exports.paths = {
   tmp: '.tmp',
   e2e: 'e2e'
 };
-//location /v2/ {
-//  proxy_pass http://192.168.1.139:5000;
-//proxy_http_version 1.1;
-//}
+
 exports.proxy = [
   {
     path:'/signin',
@@ -34,6 +31,13 @@ exports.proxy = [
     path:'/v2/',
     relay:{
       target: 'http://192.168.1.139:5000',
+      secure: false
+    }
+  },{
+    path:'/apis/',
+    relay:{
+      target: 'https://new.dataos.io:8443',
+      changeOrigin: true,
       secure: false
     }
   },{
