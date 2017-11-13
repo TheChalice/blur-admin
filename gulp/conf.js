@@ -28,6 +28,19 @@ exports.proxy = [
       secure: false
     }
   },{
+    path:'/v2/',
+    relay:{
+      target: 'http://192.168.1.139:5000',
+      secure: false
+    }
+  },{
+    path:'/apis/',
+    relay:{
+      target: 'https://new.dataos.io:8443',
+      changeOrigin: true,
+      secure: false
+    }
+  },{
     path:'/oapi/',
     relay:{
       target: 'https://new.dataos.io:8443',
@@ -42,6 +55,14 @@ exports.proxy = [
       changeOrigin: true,
       secure: false,
       ws:true
+    }
+  },{
+    path:'/registry/',
+    relay:{
+      target: 'https://registry.dataos.io',
+      pathRewrite: {'^/registry/' : '/'},
+      changeOrigin: true,
+      secure: false
     }
   },{
     path:'/api/',

@@ -1,0 +1,84 @@
+#service_creat {
+  .port {
+
+  }
+  table {
+    th {
+      text-align: center;
+    }
+    .form-group {
+      text-align: center;
+      margin-top: 15px;
+    }
+    .deletebtn {
+      margin-top: -5px;
+    }
+  }
+  .float-r {
+    float: right;
+  }
+  .tac {
+    text-align: center;
+  }
+
+  .serhlefbtn {
+    width: 80%;
+  }
+  .service_area_select {
+    height: 35px;
+    border: 1px solid #e8e9e9;
+    float: left;
+    background: #fff;
+    margin-left: 10px;
+  }
+  .service_area_select_gj {
+    margin-left: 0;
+    width: 160px;
+    margin-right: 24px;
+  }
+  .two_radius {
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+  }
+  .service_drop_gj {
+    min-width: 160px;
+  }
+  .service_block {
+    padding: 0px 4px;
+    display: block;
+    text-align: left;
+  }
+  .two_tab_ellipsis {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    overflow: hidden;
+    color: #0a0a0a;
+  }
+  .service_area_select .open .ser_bg_btn {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    top: 12px;
+  }
+  .service_area_select:hover .ser_bg_btn {
+    border: solid #5a73eb;
+    border-width: 1px 1px 0 0;
+  }
+  .ser_bg_btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 6px;
+    height: 6px;
+    border: solid #a3a3a4;
+    border-width: 1px 1px 0 0;
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    transform: rotate(135deg);
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s
+  }
+}

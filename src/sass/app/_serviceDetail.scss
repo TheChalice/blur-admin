@@ -1,0 +1,140 @@
+#service_detail {
+
+  .timeline {
+    ul {
+      list-style: none;
+      border-left: 2px solid #c9c9c9;
+      padding-left: 40px;
+      margin-top: 10px;
+      margin-left: 18px;
+      li {
+        position: relative;
+        left: -45px;
+        top: -10px;
+        margin: 0 -45px 50px 0;
+        label {
+          color: #393f4f;
+          .dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 4px;
+            background: #f6a540;
+          }
+        }
+        div.container-fluid {
+          padding: 10px 15px;
+          border: 1px solid #c9c9c9;
+          border-radius: 2px;
+          margin-left: 30px;
+          color: #5a6378;
+          font-size: 12px;
+          line-height: 25px;
+          .row {
+            margin-left: -15px;
+            margin-right: -15px;
+            .icon12-Complete {
+              background: url("../assets/img/app/build_detail/complete.png") no-repeat;
+            }
+            .icon12-Failed,
+            .icon12-Error {
+              background: url("../assets/img/app/build_detail/fail.png") no-repeat;
+            }
+            .icon12-Running,
+            .icon12-Pending {
+              background: url("../assets/img/app/build_detail/pending.png") no-repeat;
+            }
+            .icon12-band {
+              background: url("../assets/img/app/build_detail/complete.png") no-repeat;
+            }
+            .icon12-Bound {
+              background: url("../assets/img/app/build_detail/refresh.png") no-repeat;
+            }
+            .icon12-New {
+              background: url("../assets/img/app/build_detail/refresh.png") no-repeat;
+            }
+            .icon12-Cancelled {
+              background: url("../assets/img/app/build_detail/stop.png") no-repeat;
+            }
+            .tell {
+              position: relative;
+              .till {
+                position: absolute;
+                display: none;
+                top: -30px;
+                padding: 0 8px;
+                border-radius: 3px;
+                left: 0;
+                background-color: black;
+                color: white
+              }
+              .tell_detail {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis
+              }
+            }
+            .tell:hover {
+              .till {
+                display: block!important;
+              }
+            }
+            .icon25-forward {
+              background: url("../assets/img/app/build_detail/arrow.png") no-repeat;
+            }
+            .icon25-forward:hover {
+              background: url("../assets/img/app/build_detail/arrow_active.png") no-repeat;
+            }
+            .icon25-collapse {
+              background: url("../assets/img/app/build_detail/images_200.png") no-repeat;
+            }
+            .icon25-collapse:hover {
+              background: url("../assets/img/app/build_detail/images_201.png") no-repeat;
+            }
+            .icon25-delete {
+              background: url("../assets/img/app/build_detail/images_03.png") no-repeat;
+            }
+            .icon25-delete:hover {
+              background: url("../assets/img/app/build_detail/images_05.png") no-repeat;
+            }
+          }
+        }
+      }
+    }
+    .well.well-log {
+      border: none;
+      border-radius: 2px;
+      margin: 15px 0 0 30px;
+      background: #000;
+      pre {
+        font-size: 12px;
+        background: none;
+        border: none;
+        color: #3e8f3e;
+        height: 300px;
+        word-break: break-all;
+        word-wrap: break-word;
+        white-space: pre-wrap;
+      }
+    }
+  }
+}
+
+.icon25,
+.icon12 {
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+
+.icon25 {
+  width: 26px;
+  height: 25px;
+  margin: 0 10px;
+}
+
+.icon12 {
+  width: 12px;
+  height: 12px;
+}
