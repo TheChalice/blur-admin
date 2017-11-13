@@ -21,6 +21,13 @@ exports.paths = {
 
 exports.proxy = [
   {
+    path:'/lapi/',
+    relay:{
+      target: 'https://lab.new.dataos.io',
+      changeOrigin: true,
+      secure: false
+    }
+  },{
     path:'/signin',
     relay:{
       target: 'https://lab.new.dataos.io',
