@@ -9,7 +9,7 @@
         .controller('createConfigVolumeCtrl', createConfigVolumeCtrl);
 
     /** @ngInject */
-    function createConfigVolumeCtrl($state, $scope, configmaps,Cookie) {
+    function createConfigVolumeCtrl($state, $scope, configmaps,Cookie,toastr) {
         $scope.volume = {
             "kind": "ConfigMap",
             "apiVersion": "v1",
@@ -214,8 +214,10 @@
             delete $scope.volume.configarr;
             configmaps.create({namespace: Cookie.get('namespace')}, $scope.volume, function (res) {
                 $scope.loaded=false;
+                toastr.success('创建成功');
                 $state.go('resourceMgm', {index: 2});
             }, function (res) {
+                toastr.error('创建失败');
                 $state.go('createConfigVolume');
             })
         }

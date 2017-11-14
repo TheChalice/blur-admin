@@ -9,7 +9,7 @@
         .controller('createConstantlyVolumeCtrl', createConstantlyVolumeCtrl);
 
     /** @ngInject */
-    function createConstantlyVolumeCtrl(persistent,market,$state, Cookie, volume, $scope) {
+    function createConstantlyVolumeCtrl(persistent,market,$state, Cookie, volume, $scope,toastr) {
         $scope.changeval = function(e){
             $scope.grid.val = e.from;
             $scope.$apply();
@@ -151,10 +151,11 @@
             console.log($scope.plan_id);
             volume.create({namespace:Cookie.get('namespace')}, $scope.volume, function (res) {
                 $scope.loaded = false;
+                toastr.success('创建成功');
                 $state.go('resourceMgm', {index: 1});
             }, function (err) {
                 $scope.loaded = false;
-                // Toast.open('创建失败,请重试');
+                toastr.error('创建失败');
             })
 
 
