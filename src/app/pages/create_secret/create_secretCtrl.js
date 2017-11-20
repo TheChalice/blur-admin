@@ -180,7 +180,7 @@
             }
             $scope.loaded = true;
             angular.forEach($scope.secrets.secretsarr, function (item, i) {
-                $scope.secrets.data[item.key] = Base64.encode(item.value);
+                $scope.secrets.data[item.key] = $base64.encode(item.value);
             })
             delete $scope.secrets.secretsarr;
             secretskey.create({namespace:Cookie.get('namespace')}, $scope.secrets, function (res) {

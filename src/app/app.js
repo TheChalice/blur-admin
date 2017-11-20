@@ -20,7 +20,8 @@ angular.module('BlurAdmin', [
         'BlurAdmin.pages',
         'BlurAdmin.filter',
         'base64',
-        'BlurAdmin.webSocket'
+        'BlurAdmin.webSocket',
+        'angular-clipboard'
     ])
     .constant('GLOBAL', {
         size: 10,

@@ -23,6 +23,8 @@
             'BlurAdmin.pages.servicecreat',
             'BlurAdmin.pages.configDetail',
             'BlurAdmin.pages.consDetail',
+            'BlurAdmin.pages.myImage',
+            'BlurAdmin.pages.prImage',
             'BlurAdmin.pages.ui',
             'BlurAdmin.pages.login',
             'BlurAdmin.pages.components',
