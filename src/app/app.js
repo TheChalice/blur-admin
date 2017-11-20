@@ -11,8 +11,8 @@ angular.module('BlurAdmin', [
         "xeditable",
         'ui.slimscroll',
         'ngJsTree',
-        'BlurAdmin.resource',
         'BlurAdmin.service',
+        'BlurAdmin.resource',
         'BlurAdmin.controller',
         'BlurAdmin.template',
         'angular-progress-button-styles',
@@ -22,35 +22,4 @@ angular.module('BlurAdmin', [
         'base64',
         'BlurAdmin.webSocket',
         'angular-clipboard'
-    ])
-    .constant('GLOBAL', {
-        size: 10,
-        host: '/oapi/v1',
-        host_k8s: '/api/v1',
-        host_wss: '/ws/oapi/v1',
-        host_wss_k8s: '/ws/api/v1',
-        host_registry: '/registry/api',
-        host_newk8s: '/apis/autoscaling/v1',
-        login_uri: '/login',
-        signin_uri: '/signin',
-        host_lapi: '/lapi',
-        common_url:'registry.dataos.io',
-        service_url:'.cloud.new.dataos.io',
-        host_hawkular: '/hawkular/metrics',
-        host_webhooks: 'https://dev.dataos.io:8443',
-        host_payment: '/payment/v1'
-
-    })
-    .constant('AUTH_EVENTS', {
-        loginNeeded: 'auth-login-needed',
-        loginSuccess: 'auth-login-success',
-        httpForbidden: 'auth-http-forbidden'
-    })
-    .config(['$httpProvider', 'GLOBAL', function ($httpProvider) {
-        $httpProvider.interceptors.push([
-            '$injector',
-            function ($injector) {
-                return $injector.get('AuthInterceptor');
-            }
-        ]);
-    }])
+    ]);
