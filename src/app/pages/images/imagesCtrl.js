@@ -36,7 +36,8 @@
             }, 200);
             var skip = (page - 1) * $scope.grid.size;
                 $scope.newimage = $scope.images.slice(skip, skip + $scope.grid.size);
-                $scope.grid.total = $scope.images.length;
+            console.log('2222222222', $scope.newimage);
+            $scope.grid.total = $scope.images.length;
 
         };
         $scope.$watch('grid.page', function (newVal, oldVal) {
@@ -98,6 +99,7 @@
             }, 200);
             var skip = (page - 1) * $scope.grid.size;
             $scope.newCkImage = $scope.ckimages.slice(skip, skip + $scope.grid.size);
+            console.log('111111111',  $scope.newCkImage);
             $scope.grid.ckTotal = $scope.ckimages.length;
 
         };

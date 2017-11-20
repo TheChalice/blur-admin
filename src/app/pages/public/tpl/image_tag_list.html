@@ -1,0 +1,21 @@
+
+
+ <div class="" style="margin-top:20px;position: relative">
+            <div class="cd-timeline-img">
+                <div class="kameleon-icon with-round-bg warning"><img ng-src="{{::( 'Euro-Coin' | kameleonImg )}}"></div>
+            </div>
+
+            <div class="cd-timeline-content warning">
+
+                <div class="row ">
+                    <div class="col-sm-8"><h5>{{name}}:{{item.tag}}</h5></div>
+                    <div class="col-sm-4 icons-list primary" style="text-align: right;">
+                        <i class="ion-archive" uib-tooltip="拉取"  ng-click="pull(item.tag)"  style="margin-right: 20px;"></i>
+                        <i class="ion-arrow-right-b" ng-if="item.isPrImage" ui-sref="service_creat({image:item.items[0].dockerImageReference+'@'+item.tag+'@'+name,ports:item.port})" uib-tooltip="部署" style="margin-right: 20px;"></i>
+                        <i class="ion-arrow-right-b" ng-if="!item.isPrImage" uui-sref="service_creat({image:name+':'+item})" uib-tooltip="部署" style="margin-right: 20px;"></i>
+                        <i class="ion-trash-a" ng-if="!item.isPrImage" ng-click="delete($index)" uib-tooltip="删除" style="margin-right: 20px;"></i>
+                    </div>
+                </div>
+                <span ng-if="!item.isPrImage" class="cd-date">{{item.items[0].created | dateRelative}}</span>
+            </div>
+</div>

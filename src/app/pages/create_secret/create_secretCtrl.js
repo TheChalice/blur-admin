@@ -9,7 +9,7 @@
         .controller('createSecretCtrl', createSecretCtrl);
 
     /** @ngInject */
-    function createSecretCtrl($scope,Cookie, secretskey, $state,$base64) {
+    function createSecretCtrl($scope,Cookie, secretskey, $state,$base64,toastr) {
         $scope.secrets = {
             "kind": "Secret",
             "apiVersion": "v1",
@@ -180,14 +180,15 @@
             }
             $scope.loaded = true;
             angular.forEach($scope.secrets.secretsarr, function (item, i) {
-                $scope.secrets.data[item.key] = Base64.encode(item.value);
+                $scope.secrets.data[item.key] = $base64.encode(item.value);
             })
             delete $scope.secrets.secretsarr;
             secretskey.create({namespace:Cookie.get('namespace')}, $scope.secrets, function (res) {
                 $scope.grid.nameerr = false;
-                $scope.loaded = false;
+                toastr.success('创建成功');
                 $state.go('resourceMgm', {index: 3});
             }, function (res) {
+                toastr.error('创建失败');
                 if (res.status == 409) {
                     $scope.grid.nameerr = true;
                 }
