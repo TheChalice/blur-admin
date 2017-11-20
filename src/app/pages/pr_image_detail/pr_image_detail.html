@@ -4,7 +4,7 @@
             <span class="panel-title">
                 <span class="icon25 secreticon"></span>&nbsp;&nbsp;{{name}}
             </span>
-            <button class="btn btn-primary pull-right"   ui-sref="service_create({image:name+':'+tags[0].tag})"  ng-if="tags.length>0">部署最新版本</button>
+            <button class="btn btn-primary pull-right"   ui-sref="service_creat({image:name+':'+tags[0].tag})"  ng-if="tags.length>0">部署最新版本</button>
             <button class="btn btn-primary pull-right" ng-if="!tags.length" ng-disabled=true>暂无最新版本</button>
         </div>
         <div class="panel-body">

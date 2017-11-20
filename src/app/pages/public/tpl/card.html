@@ -8,11 +8,11 @@
                 </div>
                 <div class="thumb-btn" ng-if='item.status.tags[0].tag&&item.status.tags[0].items[0].created'>
                     <button class="btn btn-primary  btn-sm"
-                       ui-sref="console.service_create({image:item.status.tags[0].items[0].dockerImageReference+'@'+item.status.tags[0].tag+'@'+item.metadata.name,ports:item.status.tags[0].port})">部署最新版本</button>
+                       ui-sref="service_creat({image:item.status.tags[0].items[0].dockerImageReference+'@'+item.status.tags[0].tag+'@'+item.metadata.name,ports:item.status.tags[0].port})">部署最新版本</button>
                 </div>
                 <div class="thumb-btn" ng-if='!item.spec'>
                     <button class="btn btn-primary  btn-sm"
-                            ui-sref="console.service_create({image:item.image+':'+item.tags[0]})">部署最新版本</button>
+                            ui-sref="service_creat({image:item.metadata.name+':'+item.status.tags[0].tag})">部署最新版本</button>
                 </div>
                 <!--<p>-->
                 <!--<a class="btn btn-gray"-->
