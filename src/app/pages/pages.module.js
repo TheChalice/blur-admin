@@ -11,6 +11,7 @@
             'BlurAdmin.resource',
             'BlurAdmin.pages.dashboard',
             'BlurAdmin.pages.build',
+            'BlurAdmin.pages.buildscreat',
             'BlurAdmin.pages.images',
             'BlurAdmin.pages.build_detail',
             'BlurAdmin.pages.service',
