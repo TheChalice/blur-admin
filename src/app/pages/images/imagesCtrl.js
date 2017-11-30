@@ -35,7 +35,7 @@
                 scrollTop: 0
             }, 200);
             var skip = (page - 1) * $scope.grid.size;
-                $scope.newimage = $scope.images.slice(skip, skip + $scope.grid.size);
+            $scope.newimage = $scope.images.slice(skip, skip + $scope.grid.size);
             console.log('2222222222', $scope.newimage);
             $scope.grid.total = $scope.images.length;
 
