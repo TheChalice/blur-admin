@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('BlurAdmin.pages.nodes')
+  angular.module('BlurAdmin.pages.dashboard')
       .controller('BlurFeedCtrl', BlurFeedCtrl);
 
   /** @ngInject */
@@ -22,8 +22,8 @@
     //})
 
     $scope.expandMessage = function(message){
-      $rootScope.namespace=message.metadata.name;
-      Cookie.set('namespace', $rootScope.namespace, 10 * 365 * 24 * 3600 * 1000);
+      //$rootScope.namespace=message.metadata.name;
+      //Cookie.set('namespace', $rootScope.namespace, 10 * 365 * 24 * 3600 * 1000);
       //$state.reload();
       //alert(message.metadata.name)
 

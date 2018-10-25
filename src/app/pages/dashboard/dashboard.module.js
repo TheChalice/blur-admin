@@ -15,9 +15,17 @@
                 url: '/dashboard',
                 templateUrl: 'app/pages/dashboard/dashboard.html',
                 title: 'Dashboard',
-                controller: function ($scope) {
+                resolve: {
+                    projectlist:['Project', function (Project) {
+                        return Project.get().$promise;
+                    }],
+                },
+                controller: function ($scope,projectlist) {
+                    $scope.Projectlist = projectlist.items
+                    console.log('Projectlist', $scope.Projectlist);
                     $scope.canrender={render:false};
                 },
+
                 sidebarMeta: {
                     icon: 'ion-android-home',
                     order: 0,

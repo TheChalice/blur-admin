@@ -11,11 +11,11 @@
     /** @ngInject */
     function nodesCtrl(nodes,Cookie,Sort,$scope,nodeslist) {
         //分页
-        $scope.grid = {
-            page: 1,
-            size: 10,
-            txt: ''
-        };
+        //$scope.grid = {
+        //    page: 1,
+        //    size: 10,
+        //    txt: ''
+        //};
         console.log('nodeslist', nodeslist);
         $scope.nodelist = nodeslist.items
         //var refresh = function(page) {
