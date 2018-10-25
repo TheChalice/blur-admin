@@ -26,7 +26,7 @@
       //Cookie.set('namespace', $rootScope.namespace, 10 * 365 * 24 * 3600 * 1000);
       //$state.reload();
       //alert(message.metadata.name)
-
+      $scope.$emit("checkedone", message);
       //message.expanded = !message.expanded;
     }
   }

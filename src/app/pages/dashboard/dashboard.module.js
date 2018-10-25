@@ -20,10 +20,16 @@
                         return Project.get().$promise;
                     }],
                 },
-                controller: function ($scope,projectlist) {
+                controller: function ($scope,projectlist,$rootScope,Cookie,$state) {
                     $scope.Projectlist = projectlist.items
                     console.log('Projectlist', $scope.Projectlist);
                     $scope.canrender={render:false};
+                    $scope.$on('checkedone', function (event,item) {
+                        console.log('item', event);
+                        $rootScope.namespace=item.metadata.name;
+                        Cookie.set('namespace', $rootScope.namespace, 10 * 365 * 24 * 3600 * 1000);
+                        $state.reload();
+                    })
                 },
 
                 sidebarMeta: {
