@@ -6,10 +6,10 @@
   'use strict';
 
   angular.module('BlurAdmin.pages.dashboard')
-      .controller('dashboardblurFeedCtrl', dashboardblurFeedCtrl);
+      .controller('dashboardBlurFeedCtrl', dashboardBlurFeedCtrl);
 
   /** @ngInject */
-  function dashboardblurFeedCtrl($scope,Project,$rootScope,Cookie,$state) {
+  function dashboardBlurFeedCtrl($scope,Project,$rootScope,Cookie,$state) {
 
     Project.get({}, function (Project) {
       console.log("load project success", Project);

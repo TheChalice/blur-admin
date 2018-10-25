@@ -12,6 +12,9 @@
   function blurFeed() {
     return {
       restrict: 'E',
+      scope: {
+        feed: "="
+      },
       controller: 'BlurFeedCtrl',
       templateUrl: 'app/pages/nodes/blurFeed/blurFeed.html',
 

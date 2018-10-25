@@ -16,11 +16,17 @@
                 url: '/nodes',
                 templateUrl: 'app/pages/nodes/nodes.html',
                 controller: 'nodesCtrl',
+                resolve: {
+                    nodeslist:['nodes', '$stateParams','Cookie', function (nodes,$stateParams) {
+                        return nodes.get().$promise;
+                    }],
+                },
                 title: 'nodes',
                 sidebarMeta: {
                     icon: 'ion-android-home',
                     order: 1,
                 },
+
             });
     }
 

@@ -6,13 +6,13 @@
   'use strict';
 
   angular.module('BlurAdmin.pages.dashboard')
-      .directive('dashboardblurFeed', dashboardblurFeed);
+      .directive('dashboardBlurFeed', dashboardblurFeed);
 
   /** @ngInject */
   function dashboardblurFeed() {
     return {
       restrict: 'E',
-      controller: 'dashboardblurFeedCtrl',
+      controller: 'dashboardBlurFeedCtrl',
       templateUrl: 'app/pages/dashboard/dashboardblurFeed/dashboardblurFeed.html',
 
     };
