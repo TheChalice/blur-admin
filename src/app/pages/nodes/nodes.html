@@ -9,36 +9,85 @@
          ba-panel
          ba-panel-title="node详情"
          ba-panel-class="large-panel with-scroll feed-panel">
+        <div>
+            <div class="add-row-editable-table">
+                <button class="btn btn-primary" ng-click="addUser()">Add row</button>
+            </div>
+            <table class="table table-bordered table-hover table-condensed">
+                <tr>
+
+                    <td>Name</td>
+                    <td>Value</td>
+                    <td>Actions</td>
+                </tr>
+                <tr ng-repeat="user in users" class="editable-row">
+
+                    <td>
+                        <span editable-text="user.name" e-name="name" e-form="rowform" e-required>
+                            {{ user.name || 'empty' }}
+                        </span>
+                    </td>
+                    <td class="select-td">
+                        <span editable-text="user.value" e-name="value" e-form="rowform" e-required>
+                            {{  user.value || 'empty' }}
+                        </span>
+                    </td>
+
+                    <td>
+                        <form editable-form name="rowform" ng-show="rowform.$visible" class="form-buttons form-inline"
+                              shown="inserted == user">
+                            <button type="submit" ng-disabled="rowform.$waiting"
+                                    class="btn btn-primary editable-table-button btn-xs">
+                                Save
+                            </button>
+                            <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()"
+                                    class="btn btn-default editable-table-button btn-xs">
+                                Cancel
+                            </button>
+                        </form>
+                        <div class="buttons" ng-show="!rowform.$visible">
+                            <button class="btn btn-primary editable-table-button btn-xs" ng-click="rowform.$show()">
+                                Edit
+                            </button>
+                            <button class="btn btn-danger editable-table-button btn-xs" ng-click="removeUser($index)">
+                                Delete
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
 
     </div>
 
     <!--<div style="margin-bottom: 20px;">-->
-        <!--<button type="button" class="btn btn-success" data-toggle="modal" ng-click="">-->
-            <!--新建构建-->
-        <!--</button>-->
+    <!--<button type="button" class="btn btn-success" data-toggle="modal" ng-click="">-->
+    <!--新建构建-->
+    <!--</button>-->
     <!--</div>-->
     <!--<div ba-panel ba-panel-title="构建列表" ba-panel-class="with-scroll table-panel">-->
-        <!--<div class="horizontal-scroll">-->
-            <!--<table class="table table-hover">-->
-                <!--<thead>-->
-                <!--<tr class="black-muted-bg">-->
-                    <!--<th>构建名称</th>-->
-                    <!--<th>最近构建状态</th>-->
-                    <!--<th>最近构建时间</th>-->
-                    <!--<th>最近构建时长</th>-->
-                    <!--<th>操作</th>-->
-                <!--</tr>-->
-                <!--</thead>-->
-                <!--<tbody>-->
-                <!--<tr class="no-top-border" ng-repeat="item in data">-->
-                    <!--<td><a ui-sref="build_detail">111</a></td>-->
-                    <!--<td>最近构建状态</td>-->
-                    <!--<td>最近构建时间</td>-->
-                    <!--<td>最近构建时长</td>-->
-                    <!--<td>操作</td>-->
-                <!--</tr>-->
-                <!--</tbody>-->
-            <!--</table>-->
-        <!--</div>-->
+    <!--<div class="horizontal-scroll">-->
+    <!--<table class="table table-hover">-->
+    <!--<thead>-->
+    <!--<tr class="black-muted-bg">-->
+    <!--<th>构建名称</th>-->
+    <!--<th>最近构建状态</th>-->
+    <!--<th>最近构建时间</th>-->
+    <!--<th>最近构建时长</th>-->
+    <!--<th>操作</th>-->
+    <!--</tr>-->
+    <!--</thead>-->
+    <!--<tbody>-->
+    <!--<tr class="no-top-border" ng-repeat="item in data">-->
+    <!--<td><a ui-sref="build_detail">111</a></td>-->
+    <!--<td>最近构建状态</td>-->
+    <!--<td>最近构建时间</td>-->
+    <!--<td>最近构建时长</td>-->
+    <!--<td>操作</td>-->
+    <!--</tr>-->
+    <!--</tbody>-->
+    <!--</table>-->
+    <!--</div>-->
     <!--</div>-->
 </div>
