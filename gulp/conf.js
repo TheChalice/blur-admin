@@ -23,14 +23,14 @@ exports.proxy = [
   {
     path:'/lapi/',
     relay:{
-      target: 'https://lab.new.dataos.io',
+      target: 'https://lab.prd.dataos.io',
       changeOrigin: true,
       secure: false
     }
   },{
     path:'/signin',
     relay:{
-      target: 'https://lab.new.dataos.io',
+      target: 'https://lab.prd.dataos.io',
       changeOrigin: true,
       secure: false
     }
@@ -50,14 +50,14 @@ exports.proxy = [
   },{
     path:'/oapi/',
     relay:{
-      target: 'https://new.dataos.io:8443',
+      target: 'https://lab.prd.dataos.io',
       changeOrigin: true,
       secure: false
     }
   },{
     path:'/ws/',
     relay:{
-      target: 'https://new.dataos.io:8443',
+      target: 'https://prd.dataos.io',
       pathRewrite: {'^/ws/' : '/'},
       changeOrigin: true,
       secure: false,
@@ -74,14 +74,14 @@ exports.proxy = [
   },{
     path:'/api/',
     relay:{
-      target: 'https://new.dataos.io:8443',
+      target: 'https://lab.prd.dataos.io',
       changeOrigin: true,
       secure: false
     }
   },{
     path:'/hawkular/',
     relay:{
-      target: 'https://hawkular-metrics.new.dataos.io',
+      target: 'https://hawkular-metrics.lo.dataos.io',
       changeOrigin: true,
       secure: false
     }

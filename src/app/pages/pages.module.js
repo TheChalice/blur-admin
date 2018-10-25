@@ -10,7 +10,7 @@
             'BlurAdmin.kubernetesUI',
             'BlurAdmin.resource',
             'BlurAdmin.pages.dashboard',
-            'BlurAdmin.pages.build',
+            'BlurAdmin.pages.nodes',
             'BlurAdmin.pages.images',
             'BlurAdmin.pages.build_detail',
             'BlurAdmin.pages.service',

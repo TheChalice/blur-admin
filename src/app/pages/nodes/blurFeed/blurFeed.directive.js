@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('BlurAdmin.pages.dashboard')
+  angular.module('BlurAdmin.pages.nodes')
       .directive('blurFeed', blurFeed);
 
   /** @ngInject */
@@ -13,7 +13,7 @@
     return {
       restrict: 'E',
       controller: 'BlurFeedCtrl',
-      templateUrl: 'app/pages/dashboard/blurFeed/blurFeed.html',
+      templateUrl: 'app/pages/nodes/blurFeed/blurFeed.html',
 
     };
   }
