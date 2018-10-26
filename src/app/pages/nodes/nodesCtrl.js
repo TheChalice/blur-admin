@@ -34,9 +34,9 @@
 
             })
             if (item.spec&&item.spec.unschedulable) {
-                nodeInfo.unshift({"name": '是否调度', "value": '否'})
+                nodeInfo.unshift({"name": 'schedulable', "value": 'No'})
             }else {
-                nodeInfo.unshift({"name": '是否调度', "value": '是'})
+                nodeInfo.unshift({"name": 'schedulable', "value": 'Yes'})
             }
             $scope.labels=angular.copy(labels);
             $scope.nodeInfo=angular.copy(nodeInfo);
@@ -49,7 +49,7 @@
                 name: '',
                 value: ''
             };
-            $scope.users.push($scope.inserted);
+            $scope.labels.push($scope.inserted);
         };
 
 
