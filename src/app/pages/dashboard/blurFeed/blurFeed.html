@@ -1,20 +1,18 @@
 
 <div class="feed-messages-container" track-width="smallContainerWidth" min-width="360">
-  <div class="feed-message" ng-repeat="message in feed" ng-click="expandMessage(message)">
-    <!--<div class="message-icon" ng-if="message.type == 'text-message'">-->
-      <!--<img class="photo-icon" ng-src="{{::( message.author | profilePicture )}}">-->
-    <!--</div>-->
+  <div class="feed-message" ng-class="{'active':message.checked}" ng-repeat="message in feed" ng-click="expandMessage(message)">
+
     <div class="message-icon">
       <img class="photo-icon" ng-src="../../assets/img/app/profile/Nick.png">
       <!--<span class="sub-photo-icon" ng-class="::message.type"></span>-->
     </div>
     <div class="text-block text-message">
-      <div class="message-header">
+      <div class="message-header line-clamp">
         <span class="author">{{ ::message.metadata.name}}</span>
       </div>
-      <div class="message-content line-clamp" ng-class="{'line-clamp-2' : message.expanded}">
-        <span>{{ ::message.annotations["openshift.io/display-name"]}} </span>
-      </div>
+      <!--<div class="message-content line-clamp" ng-class="{'line-clamp-2' : message.expanded}">-->
+        <!--<span>{{ ::message.annotations["openshift.io/display-name"]}} </span>-->
+      <!--</div>-->
       <!--<div class="preview" ng-show="message.expanded" ng-if="message.preview">-->
         <!--<a href="{{::message.link}}" target="_blank">-->
           <!--<img ng-src="{{ ::( message.preview | appImage )}}">-->

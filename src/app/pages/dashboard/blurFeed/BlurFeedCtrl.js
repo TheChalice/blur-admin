@@ -22,6 +22,10 @@
     //})
 
     $scope.expandMessage = function(message){
+      angular.forEach($scope.feed, function (item,i) {
+        item.checked=false;
+      })
+      message.checked = true;
       //$rootScope.namespace=message.metadata.name;
       //Cookie.set('namespace', $rootScope.namespace, 10 * 365 * 24 * 3600 * 1000);
       //$state.reload();
