@@ -1,26 +1,22 @@
-<div class="widgets">
+<div class="widgets" id="nodelist">
     <div class="col-xlg-3 col-lg-3 col-md-3 col-sm-12 col-xs-12"
          ba-panel
          ba-panel-title="node列表"
          ba-panel-class="large-panel with-scroll feed-panel">
         <blur-feed feed="nodelist"></blur-feed>
     </div>
-    <div class="col-xlg-9 col-lg-9 col-md-9 col-sm-12 col-xs-12"
-         ba-panel
-         ba-panel-title="node详情"
-         ba-panel-class="large-panel with-scroll feed-panel">
-        <div>
-            <div class="add-row-editable-table">
-                <button class="btn btn-primary" ng-click="addUser()">Add row</button>
-            </div>
+    <div class="col-xlg-9 col-lg-9 col-md-9 col-sm-12 col-xs-12">
+        <div class="col-xlg-12 col-lg-12 col-md-12 col-sm-12 col-xs-12"
+             ba-panel
+             ba-panel-title="节点标签"
+             ba-panel-class="medium-panel with-scroll">
             <table class="table table-bordered table-hover table-condensed">
                 <tr>
-
                     <td>Name</td>
                     <td>Value</td>
                     <td>Actions</td>
                 </tr>
-                <tr ng-repeat="user in users" class="editable-row">
+                <tr ng-repeat="user in labels" class="editable-row">
 
                     <td>
                         <span editable-text="user.name" e-name="name" e-form="rowform" e-required>
@@ -56,9 +52,29 @@
                     </td>
                 </tr>
             </table>
-
+            <div class="add-row-editable-table">
+                <button class="btn btn-primary" style="float: right;" ng-click="addUser()">Add row</button>
+            </div>
         </div>
+        <div class="col-xlg-12 col-lg-12 col-md-12 col-sm-12 col-xs-12"
+             ba-panel
+             ba-panel-title="节点信息"
+             ba-panel-class="medium-panel with-scroll">
+            <div class="table-responsive">
+                <table class="table">
+                    <tr>
+                        <th>name</th>
+                        <th>value</th>
+                    </tr>
+                    <tr ng-repeat="item in nodeInfo">
+                        <td>{{item.name}}</td>
+                        <td>{{item.value}}</td>
 
+                    </tr>
+
+                </table>
+            </div>
+        </div>
     </div>
 
     <!--<div style="margin-bottom: 20px;">-->
