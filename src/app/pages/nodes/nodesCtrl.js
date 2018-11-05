@@ -9,7 +9,7 @@
         .controller('nodesCtrl', nodesCtrl);
 
     /** @ngInject */
-    function nodesCtrl(toastr, Cookie, Sort, $scope, nodeslist, $rootScope, nodesupdata) {
+    function nodesCtrl(toastr, $scope, nodeslist, nodesupdata) {
         //分页
         //$scope.grid = {
         //    page: 1,
@@ -19,7 +19,7 @@
         $scope.editableTableData = []
         //console.log('nodeslist', nodeslist);
         $scope.nodelist = nodeslist.items;
-        function checkedone(item){
+        function checkedone(item) {
             $scope.checked = item
             //console.log('item', item);
             var labels = [];
@@ -42,45 +42,42 @@
             $scope.nodeInfo = angular.copy(nodeInfo);
         }
 
-        function creatupdataobj(){
+        function creatupdataobj() {
             var updata = {
-                "metadata":
-                {
-                    "labels": {
-
-                    }
+                "metadata": {
+                    "labels": {}
                 }
             }
             angular.forEach($scope.labels, function (item, i) {
                 if (item.name && item.value) {
-                    updata.metadata.labels[item.name]=item.value;
+                    updata.metadata.labels[item.name] = item.value;
                 }
             })
             return updata
         }
-        function testerr(updata){
-            var namerex=/^([A-Za-z0-9][-A-Za-z0-9_.\/]*)?[A-Za-z0-9]$/
-            var valuerex=/^(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?$/
+
+        function testerr(updata) {
+            var namerex = /^([A-Za-z0-9][-A-Za-z0-9_.\/]*)?[A-Za-z0-9]$/
+            var valuerex = /^(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?$/
             var err = false;
             //console.log('updata.labels', updata);
-            angular.forEach(updata.metadata.labels, function (item,i) {
-                console.log(i, item);
-                console.log(namerex.test(i), valuerex.test(item));
+            angular.forEach(updata.metadata.labels, function (item, i) {
                 if (!namerex.test(i)) {
 
-                    err=true
+                    err = true
                 }
                 if (!valuerex.test(item)) {
-                    err=true
+                    err = true
                 }
 
             })
             if (!err) {
                 return false
-            }else {
+            } else {
                 return true
             }
         }
+
         $scope.$on('checkedone', function (event, item) {
             checkedone(item)
         })
@@ -92,26 +89,30 @@
             };
             $scope.labels.push($scope.inserted);
         };
-        $scope.removelist= function (index) {
+
+        $scope.removelist = function (index) {
             //console.log('$scope.labels[index].name',$scope.labels[index].name);
             var updataobj = creatupdataobj();
             if ($scope.labels[index].name) {
-                updataobj.metadata.labels[$scope.labels[index].name]=null;
+                updataobj.metadata.labels[$scope.labels[index].name] = null;
             }
-            nodesupdata.updata({node: $scope.checked.metadata.name},updataobj, function (data) {
+            nodesupdata.updata({node: $scope.checked.metadata.name}, updataobj, function (data) {
                 checkedone(data)
             })
         }
-        $scope.savelist = function (rowform,name) {
+
+        $scope.savelist = function (rowform, name) {
+            //console.log('rowform', rowform);
+
             if (name) {
                 var oldname = name
             }
-           var updataobj = creatupdataobj();
+            var updataobj = creatupdataobj();
             if (rowform.$data.name) {
-                updataobj.metadata.labels[rowform.$data.name]=rowform.$data.value;
+                updataobj.metadata.labels[rowform.$data.name] = rowform.$data.value;
             }
-            if (name) {
-                updataobj.metadata.labels[oldname]=null;
+            if (rowform.$data.name !== name) {
+                updataobj.metadata.labels[oldname] = null;
             }
             //console.log('testerr(updataobj)', testerr(updataobj));
             if (testerr(updataobj)) {
@@ -130,11 +131,11 @@
                     "preventDuplicates": false,
                     "preventOpenDuplicates": false
                 })
-               return
+                return
             }
-            nodesupdata.updata({node: $scope.checked.metadata.name},updataobj, function (data) {
+            nodesupdata.updata({node: $scope.checked.metadata.name}, updataobj, function (data) {
                 $scope.inserted = false;
-                rowform.$visible=false;
+                rowform.$visible = false;
                 checkedone(data)
             })
         }
