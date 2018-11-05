@@ -31,36 +31,42 @@
                         </td>
 
                         <td>
-                            <form editable-form name="rowform" ng-show="rowform.$visible" class="form-buttons form-inline"
-                                  shown="inserted == user">
-                                <button type="button" ng-disabled="rowform.$waiting" ng-click="savelist(rowform,user.name)"
-                                        class="btn btn-primary editable-table-button btn-xs">
-                                    保存
-                                </button>
-                                <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()"
-                                        class="btn btn-default editable-table-button btn-xs">
-                                    取消
-                                </button>
-                            </form>
-                            <form editable-form name="rowform1" ng-show="rowform1.$visible" class="form-buttons form-inline">
-                                <button type="submit" ng-disabled="rowform1.$waiting" ng-click="removelist($index)"
-                                        class="btn btn-danger editable-table-button btn-xs">
-                                    确认
-                                </button>
-                                <button type="button" ng-disabled="rowform1.$waiting" ng-click="rowform1.$cancel()"
-                                        class="btn btn-default editable-table-button btn-xs">
-                                    取消
-                                </button>
-                            </form>
-                            <div class="buttons" ng-show="!rowform.$visible && !rowform1.$visible">
-                                <button class="btn btn-primary editable-table-button btn-xs" ng-click="rowform.$show()">
-                                    修改
-                                </button>
-                                <button class="btn btn-danger editable-table-button btn-xs" ng-click="rowform1.$show()">
-                                <!--<button class="btn btn-danger editable-table-button btn-xs" ng-click="removelist($index)">-->
-                                    删除
-                                </button>
-                            </div>
+                            <!--user.name!==kubernetes.io/hostname-->
+                            <span ng-show="user.name!=='zone'&&user.name!=='region'&&user.name!=='kubernetes.io/hostname'&&user.name!=='beta.kubernetes.io/arch'&&user.name!=='beta.kubernetes.io/os'">
+                                <form editable-form name="rowform" ng-show="rowform.$visible" class="form-buttons form-inline"
+                                      shown="inserted == user">
+                                    <button type="button" ng-disabled="rowform.$waiting" ng-click="savelist(rowform,user.name)"
+                                            class="btn btn-primary editable-table-button btn-xs">
+                                        保存
+                                    </button>
+                                    <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()"
+                                            class="btn btn-default editable-table-button btn-xs">
+                                        取消
+                                    </button>
+                                </form>
+                                <form editable-form name="rowform1" ng-show="rowform1.$visible" class="form-buttons form-inline">
+                                    <button type="submit" ng-disabled="rowform1.$waiting" ng-click="removelist($index)"
+                                            class="btn btn-danger editable-table-button btn-xs">
+                                        确认
+                                    </button>
+                                    <button type="button" ng-disabled="rowform1.$waiting" ng-click="rowform1.$cancel()"
+                                            class="btn btn-default editable-table-button btn-xs">
+                                        取消
+                                    </button>
+                                </form>
+                                <div class="buttons" ng-show="!rowform.$visible && !rowform1.$visible">
+                                    <button class="btn btn-primary editable-table-button btn-xs" ng-click="rowform.$show()">
+                                        修改
+                                    </button>
+                                    <button class="btn btn-danger editable-table-button btn-xs" ng-click="rowform1.$show()">
+                                        <!--<button class="btn btn-danger editable-table-button btn-xs" ng-click="removelist($index)">-->
+                                        删除
+                                    </button>
+                                </div>
+                            </span>
+
+
+
                         </td>
                     </tr>
                 </table>
