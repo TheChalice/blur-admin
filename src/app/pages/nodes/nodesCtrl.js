@@ -97,6 +97,11 @@
                 updataobj.metadata.labels[$scope.labels[index].name] = null;
             }
             nodesupdata.updata({node: $scope.checked.metadata.name}, updataobj, function (data) {
+                angular.forEach($scope.nodelist, function (node,i) {
+                    if (node.metadata.name === data.metadata.name) {
+                        $scope.nodelist[i].metadata.labels=data.metadata.labels
+                    }
+                })
                 checkedone(data)
             })
         }
@@ -136,6 +141,11 @@
             nodesupdata.updata({node: $scope.checked.metadata.name}, updataobj, function (data) {
                 $scope.inserted = false;
                 rowform.$visible = false;
+                angular.forEach($scope.nodelist, function (node,i) {
+                    if (node.metadata.name === data.metadata.name) {
+                        $scope.nodelist[i].metadata.labels=data.metadata.labels
+                    }
+                })
                 checkedone(data)
             })
         }
